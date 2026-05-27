@@ -484,20 +484,449 @@ figure.highlight {
   box-shadow: 0 4px 15px rgba(73, 177, 245, 0.3);
 }
 
-/* ---- Responsive Adjustments ---- */
+/* ========================================
+   Mobile Optimizations
+   ======================================== */
+
+/* ---- Tablet (768px and below) ---- */
 @media screen and (max-width: 768px) {
+  :root {
+    --blog-radius: 12px;
+    --blog-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Hero Section */
+  #site-info {
+    padding: 0 20px;
+  }
+
+  #site-info .site-title {
+    font-size: 1.8em !important;
+  }
+
+  #site-info .site-subtitle {
+    font-size: 1em !important;
+  }
+
+  /* Post Content */
   #post-content,
   #article-container {
     font-size: 15px;
+    line-height: 1.75;
+    padding: 0 12px;
+  }
+
+  #post-content h1,
+  #article-container h1 {
+    font-size: 1.5em;
   }
 
   #post-content h2,
   #article-container h2 {
     font-size: 1.3em;
+    margin-top: 1.5em;
+  }
+
+  #post-content h3,
+  #article-container h3 {
+    font-size: 1.15em;
+  }
+
+  /* Images - Full width on mobile */
+  #post-content img,
+  #article-container img {
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+  }
+
+  #post-content img:hover,
+  #article-container img:hover {
+    transform: none;
+  }
+
+  /* Tables - Horizontal scroll */
+  #post-content table,
+  #article-container table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+  }
+
+  #post-content table th,
+  #article-container table th,
+  #post-content table td,
+  #article-container table td {
+    padding: 10px 12px;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  /* Blockquote */
+  #post-content blockquote,
+  #article-container blockquote {
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  #post-content blockquote:hover,
+  #article-container blockquote:hover {
+    transform: translateX(4px);
+  }
+
+  /* Code blocks */
+  figure.highlight {
+    border-radius: 8px !important;
+    margin: 16px -12px;
+    width: calc(100% + 24px);
+  }
+
+  #post-content code,
+  #article-container code {
+    font-size: 0.85em;
+    padding: 2px 6px;
+  }
+
+  /* Lists */
+  #post-content ul li,
+  #article-container ul li {
+    margin-bottom: 0.4em;
+  }
+
+  #post-content ul li:hover,
+  #article-container ul li:hover {
+    transform: translateX(4px);
+  }
+
+  /* Article Cards */
+  .article-sort-item {
+    padding: 16px !important;
+    margin-bottom: 12px !important;
   }
 
   .article-sort-item:hover {
     transform: translateX(4px) !important;
+  }
+
+  .article-sort-item__title {
+    font-size: 1em !important;
+  }
+
+  /* Index Post Cards */
+  #recent-posts .recent-post-item {
+    margin-bottom: 16px !important;
+    border-radius: 12px !important;
+  }
+
+  #recent-posts .recent-post-item:hover {
+    transform: translateY(-4px) !important;
+  }
+
+  #recent-posts .recent-post-item .post_cover {
+    height: 180px !important;
+  }
+
+  #recent-posts .recent-post-item .post_info {
+    padding: 12px 16px !important;
+  }
+
+  /* Sidebar - Hidden on mobile, accessible via button */
+  .aside-content {
+    padding: 12px !important;
+  }
+
+  .card-widget {
+    margin-bottom: 12px !important;
+    padding: 16px !important;
+  }
+
+  .card-widget:hover {
+    transform: none !important;
+  }
+
+  /* Tags */
+  .tag-cloud a {
+    padding: 4px 10px !important;
+    font-size: 0.85em !important;
+  }
+
+  .tag-cloud a:hover {
+    transform: scale(1.05) !important;
+  }
+
+  /* Categories */
+  .category-lists .category-list a {
+    font-size: 0.95em;
+  }
+
+  /* TOC - Sticky on mobile */
+  #card-toc {
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .toc-content .toc-link {
+    padding: 6px 10px !important;
+    font-size: 0.9em;
+  }
+
+  /* Footer */
+  #footer {
+    padding: 30px 20px !important;
+  }
+
+  #footer .footer-custom-text {
+    font-size: 0.95em !important;
+  }
+
+  /* Buttons */
+  #go-up {
+    width: 40px !important;
+    height: 40px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
+  /* Navigation */
+  .menus_item_child {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1) !important;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  /* Post Meta */
+  .post-meta__date {
+    font-size: 0.85em !important;
+  }
+
+  .post-meta__categories a {
+    padding: 3px 10px !important;
+    font-size: 0.75em !important;
+  }
+
+  /* Post Copyright */
+  .post-copyright {
+    padding: 12px 16px !important;
+    font-size: 0.85em;
+  }
+
+  /* Related Posts */
+  .relatedPosts {
+    padding: 0 12px;
+  }
+
+  .relatedPosts_list {
+    margin-bottom: 12px;
+  }
+
+  .relatedPosts_list:hover {
+    transform: translateY(-4px) !important;
+  }
+
+  /* Search Dialog */
+  #search-page .search-dialog {
+    width: 90% !important;
+    max-width: none !important;
+    border-radius: 12px !important;
+  }
+
+  #search-page input {
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* Comments */
+  #post-comment {
+    padding: 16px 12px !important;
+  }
+
+  /* Disable heavy animations on mobile */
+  #page::before,
+  #page::after {
+    animation: none;
+  }
+
+  .card-author-img:hover {
+    transform: rotate(180deg) !important;
+  }
+
+  /* Horizontal Rule */
+  #post-content hr,
+  #article-container hr {
+    margin: 1.5em 0;
+    animation: none;
+  }
+
+  /* Better touch targets */
+  a, button, .post-nav-item {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Post Navigation */
+  .post-nav-item {
+    padding: 12px 16px !important;
+  }
+
+  .post-nav-item:hover {
+    transform: translateX(4px) !important;
+  }
+
+  /* Archive Page */
+  .article-sort {
+    padding-left: 16px !important;
+  }
+
+  .article-sort-year {
+    font-size: 1.3em !important;
+  }
+
+  /* 404 Page */
+  .error-content {
+    padding: 20px;
+  }
+
+  .error-content h1 {
+    font-size: 2em !important;
+  }
+
+  /* Busuanzi */
+  #busuanzi_value_site_pv,
+  #busuanzi_value_site_uv,
+  #busuanzi_value_page_pv {
+    font-size: 1em !important;
+  }
+}
+
+/* ---- Small Mobile (480px and below) ---- */
+@media screen and (max-width: 480px) {
+  #site-info .site-title {
+    font-size: 1.5em !important;
+  }
+
+  #site-info .site-subtitle {
+    font-size: 0.9em !important;
+  }
+
+  #post-content,
+  #article-container {
+    font-size: 14px;
+    padding: 0 8px;
+  }
+
+  #post-content h1,
+  #article-container h1 {
+    font-size: 1.35em;
+  }
+
+  #post-content h2,
+  #article-container h2 {
+    font-size: 1.2em;
+  }
+
+  #recent-posts .recent-post-item .post_cover {
+    height: 150px !important;
+  }
+
+  .article-sort-item {
+    padding: 12px !important;
+  }
+
+  .card-widget {
+    padding: 12px !important;
+  }
+
+  figure.highlight {
+    margin: 12px -8px;
+    width: calc(100% + 16px);
+  }
+
+  .tag-cloud a {
+    padding: 3px 8px !important;
+    font-size: 0.8em !important;
+  }
+}
+
+/* ---- Landscape Mobile ---- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  #site-info {
+    padding-top: 10vh !important;
+  }
+
+  #site-info .site-title {
+    font-size: 1.3em !important;
+  }
+
+  .menus_item_child {
+    max-height: 80vh;
+  }
+}
+
+/* ---- Touch Device Optimizations ---- */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects that don't work on touch */
+  .card-widget:hover {
+    transform: none !important;
+  }
+
+  #recent-posts .recent-post-item:hover {
+    transform: none !important;
+  }
+
+  .article-sort-item:hover {
+    transform: none !important;
+  }
+
+  /* Larger touch targets */
+  .post-meta__categories a {
+    padding: 6px 14px !important;
+  }
+
+  .tag-cloud a {
+    padding: 6px 12px !important;
+  }
+
+  /* Tap highlight color */
+  a, button {
+    -webkit-tap-highlight-color: rgba(73, 177, 245, 0.2);
+  }
+
+  /* Disable tooltips */
+  [data-title]::after {
+    display: none !important;
+  }
+
+  /* Smooth momentum scrolling */
+  .aside-content,
+  #card-toc,
+  .menus_item_child {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}
+
+/* ---- Safe Area (Notch devices) ---- */
+@supports (padding-top: env(safe-area-inset-top)) {
+  #nav {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  #footer {
+    padding-bottom: env(safe-area-inset-bottom) !important;
+  }
+
+  #go-up {
+    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
   }
 }
 
