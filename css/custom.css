@@ -1,6 +1,6 @@
 /* ========================================
-   Custom Styles for 旅行与生活 Blog
-   Modern Glassmorphism + Gradient Theme
+   Custom Styles - 旅行与生活 Blog
+   Balanced for PC & Mobile
    ======================================== */
 
 /* ---- Root Variables ---- */
@@ -8,147 +8,105 @@
   --blog-primary: #49B1F5;
   --blog-secondary: #00c4b6;
   --blog-accent: #FF7242;
-  --blog-bg-light: #f8f9fa;
-  --blog-text: #2c3e50;
   --blog-border: rgba(73, 177, 245, 0.15);
   --blog-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --blog-radius: 16px;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.3);
+  --blog-radius: 12px;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.4);
 }
 
 [data-theme="dark"] {
-  --blog-bg-light: #0f0f1a;
-  --blog-text: #e0e0e0;
   --blog-border: rgba(73, 177, 245, 0.2);
   --blog-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --glass-bg: rgba(15, 15, 26, 0.8);
+  --glass-bg: rgba(15, 15, 26, 0.85);
   --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-/* ---- Animated Gradient Background ---- */
-#page {
-  position: relative;
-  min-height: 100vh;
-}
-
-#page::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(73, 177, 245, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(0, 196, 182, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 40% 80%, rgba(255, 114, 66, 0.04) 0%, transparent 50%);
-  z-index: -1;
-  animation: gradientShift 15s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
+/* ========================================
+   Background Effects (PC only, disabled on mobile for performance)
+   ======================================== */
+@media screen and (min-width: 769px) {
+  #page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(73, 177, 245, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(0, 196, 182, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 40% 80%, rgba(255, 114, 66, 0.03) 0%, transparent 50%);
+    z-index: -1;
+    animation: gradientShift 15s ease-in-out infinite;
   }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
+
+  @keyframes gradientShift {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.02); }
   }
 }
 
-/* ---- Floating Orbs (Modern Effect) ---- */
-#page::after {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(73, 177, 245, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 70% 60%, rgba(0, 196, 182, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(255, 114, 66, 0.03) 0%, transparent 40%);
-  z-index: -1;
-  animation: floatOrbs 20s ease-in-out infinite;
-}
-
-@keyframes floatOrbs {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(2%, -3%) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1%, 2%) rotate(-1deg);
-  }
-  75% {
-    transform: translate(3%, 1%) rotate(0.5deg);
-  }
-}
-
-/* ---- Glassmorphism Cards ---- */
-#content-inner,
-.aside-content,
-.card-widget,
+/* ========================================
+   Article Content - PC Layout (Main Focus)
+   ======================================== */
 #post-content,
 #article-container {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--blog-shadow);
-}
-
-/* ---- Global Typography ---- */
-#post-content,
-#article-container {
-  font-size: 16px;
-  line-height: 1.85;
+  font-size: 17px;
+  line-height: 1.9;
   letter-spacing: 0.02em;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 40px;
 }
 
-/* ---- Headings with Gradient Underline ---- */
+/* Headings */
+#post-content h1,
+#article-container h1 {
+  font-size: 1.8em;
+  margin-bottom: 0.8em;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--blog-border);
+}
+
 #post-content h2,
 #article-container h2 {
   position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-  margin-top: 2em;
+  font-size: 1.45em;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  border-left: 4px solid var(--blog-primary);
 }
 
-#post-content h2::after,
-#article-container h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blog-primary), var(--blog-secondary), var(--blog-accent));
-  border-radius: 3px;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+#post-content h3,
+#article-container h3 {
+  font-size: 1.2em;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  padding-left: 14px;
+  border-left: 3px solid var(--blog-secondary);
 }
 
-#post-content h2:hover::after,
-#article-container h2:hover::after {
-  width: 120%;
+/* Paragraphs */
+#post-content p,
+#article-container p {
+  margin-bottom: 1.2em;
+  text-align: justify;
 }
 
-/* ---- Blockquote Styling ---- */
+/* Blockquote */
 #post-content blockquote,
 #article-container blockquote {
   border-left: 4px solid var(--blog-primary);
-  background: rgba(73, 177, 245, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 0 var(--blog-radius) var(--blog-radius) 0;
-  padding: 16px 20px;
-  margin: 20px 0;
+  background: rgba(73, 177, 245, 0.06);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 24px;
+  margin: 24px 0;
   font-style: italic;
-  color: #666;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #555;
+  transition: all 0.3s ease;
 }
 
 [data-theme="dark"] #post-content blockquote,
@@ -160,18 +118,18 @@
 #post-content blockquote:hover,
 #article-container blockquote:hover {
   border-left-color: var(--blog-accent);
-  background: rgba(255, 114, 66, 0.05);
-  transform: translateX(8px);
+  background: rgba(255, 114, 66, 0.06);
 }
 
-/* ---- Table Styling ---- */
+/* Table */
 #post-content table,
 #article-container table {
-  border-radius: var(--blog-radius);
+  width: 100%;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--blog-shadow);
   border: 1px solid var(--blog-border);
-  backdrop-filter: blur(10px);
+  margin: 24px 0;
 }
 
 #post-content table thead,
@@ -182,93 +140,91 @@
 
 #post-content table th,
 #article-container table th {
-  padding: 14px 18px;
+  padding: 14px 20px;
   font-weight: 600;
   text-align: center;
 }
 
 #post-content table td,
 #article-container table td {
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-bottom: 1px solid var(--blog-border);
   text-align: center;
-  transition: all 0.3s ease;
+}
+
+#post-content table tr:nth-child(even),
+#article-container table tr:nth-child(even) {
+  background: rgba(73, 177, 245, 0.03);
 }
 
 #post-content table tr:hover td,
 #article-container table tr:hover td {
   background: rgba(73, 177, 245, 0.08);
-  transform: scale(1.01);
 }
 
-/* ---- Code Block Styling ---- */
+/* Code */
 #post-content code,
 #article-container code {
   background: rgba(73, 177, 245, 0.1);
   color: var(--blog-accent);
   padding: 2px 8px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 0.9em;
-  backdrop-filter: blur(5px);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 figure.highlight {
-  border-radius: var(--blog-radius) !important;
+  border-radius: 8px !important;
   box-shadow: var(--blog-shadow) !important;
   border: 1px solid var(--blog-border) !important;
-  backdrop-filter: blur(10px);
+  margin: 24px 0;
 }
 
-/* ---- Link Styling ---- */
+/* Links */
 #post-content a,
 #article-container a {
   color: var(--blog-primary);
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+  transition: all 0.3s ease;
 }
 
 #post-content a:hover,
 #article-container a:hover {
   color: var(--blog-accent);
   border-bottom-color: var(--blog-accent);
-  transform: translateY(-2px);
 }
 
-/* ---- Image Styling ---- */
+/* Images */
 #post-content img,
 #article-container img {
-  border-radius: var(--blog-radius);
+  border-radius: 8px;
   box-shadow: var(--blog-shadow);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   max-width: 100%;
+  display: block;
+  margin: 24px auto;
+  transition: transform 0.3s ease;
 }
 
 #post-content img:hover,
 #article-container img:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
 }
 
-/* ---- List Styling ---- */
+/* Lists */
 #post-content ul,
 #article-container ul {
   list-style: none;
   padding-left: 1.5em;
+  margin-bottom: 1.2em;
 }
 
 #post-content ul li,
 #article-container ul li {
   position: relative;
   padding-left: 1.2em;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.5em;
   transition: all 0.3s ease;
-}
-
-#post-content ul li:hover,
-#article-container ul li:hover {
-  transform: translateX(8px);
 }
 
 #post-content ul li::before,
@@ -276,114 +232,201 @@ figure.highlight {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.6em;
-  width: 8px;
-  height: 8px;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
   background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary));
   border-radius: 50%;
-  transition: all 0.3s ease;
 }
 
-#post-content ul li:hover::before,
-#article-container ul li:hover::before {
-  background: var(--blog-accent);
-  transform: scale(1.5);
-  box-shadow: 0 0 12px rgba(255, 114, 66, 0.4);
+#post-content ul li:hover,
+#article-container ul li:hover {
+  transform: translateX(6px);
 }
 
-/* ---- Card Hover Effects ---- */
-.article-sort-item {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+#post-content ol,
+#article-container ol {
+  margin-bottom: 1.2em;
+}
+
+#post-content ol li,
+#article-container ol li {
+  margin-bottom: 0.5em;
+}
+
+/* Horizontal Rule */
+#post-content hr,
+#article-container hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blog-primary), var(--blog-secondary), transparent);
+  margin: 2.5em 0;
+}
+
+/* Strong */
+#post-content strong,
+#article-container strong {
+  color: var(--blog-primary);
+  font-weight: 600;
+}
+
+/* ========================================
+   Sidebar Cards
+   ======================================== */
+.card-widget {
   border-radius: var(--blog-radius) !important;
-  backdrop-filter: blur(10px);
+  box-shadow: var(--blog-shadow) !important;
+  border: 1px solid var(--glass-border) !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: all 0.3s ease !important;
+  margin-bottom: 16px !important;
 }
 
-.article-sort-item:hover {
-  transform: translateX(12px) scale(1.02) !important;
-  box-shadow: 0 12px 40px rgba(73, 177, 245, 0.2) !important;
+.card-widget:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* ---- Post Meta Styling ---- */
-.post-meta__date {
-  color: var(--blog-primary) !important;
+/* Author Card */
+.card-author-img {
+  border: 3px solid var(--blog-primary) !important;
+  transition: all 0.4s ease !important;
 }
 
+.card-author-img:hover {
+  transform: rotate(360deg) scale(1.05) !important;
+  box-shadow: 0 0 20px rgba(73, 177, 245, 0.4) !important;
+}
+
+/* Announcement */
+.card-announcement {
+  background: linear-gradient(135deg, rgba(73, 177, 245, 0.06), rgba(0, 196, 182, 0.06)) !important;
+  border-left: 4px solid var(--blog-primary) !important;
+}
+
+/* ========================================
+   Post Meta & Tags
+   ======================================== */
 .post-meta__categories a {
   background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
   color: white !important;
-  padding: 4px 14px !important;
+  padding: 3px 12px !important;
   border-radius: 20px !important;
   font-size: 0.85em !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  box-shadow: 0 4px 15px rgba(73, 177, 245, 0.3);
+  transition: all 0.3s ease !important;
 }
 
 .post-meta__categories a:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 25px rgba(73, 177, 245, 0.4) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(73, 177, 245, 0.3) !important;
 }
 
-/* ---- Tag Styling ---- */
 .tag-cloud a {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.3s ease !important;
   border-radius: 20px !important;
-  padding: 6px 16px !important;
-  backdrop-filter: blur(5px);
+  padding: 4px 14px !important;
 }
 
 .tag-cloud a:hover {
   background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
   color: white !important;
-  transform: scale(1.1) translateY(-4px) !important;
-  box-shadow: 0 8px 25px rgba(73, 177, 245, 0.3) !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 15px rgba(73, 177, 245, 0.3) !important;
 }
 
-/* ---- Aside Card Styling ---- */
-.card-widget {
-  border-radius: var(--blog-radius) !important;
+/* ========================================
+   Category Count Badge
+   ======================================== */
+.category-lists .category-list .category-list-count {
+  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
+  color: white !important;
+  border-radius: 20px !important;
+  padding: 3px 12px !important;
+  font-size: 0.85em !important;
+}
+
+/* ========================================
+   Article Sort Items (Archive)
+   ======================================== */
+.article-sort-item {
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  padding: 16px 20px !important;
+}
+
+.article-sort-item:hover {
+  transform: translateX(8px) !important;
+  background: rgba(73, 177, 245, 0.05) !important;
   box-shadow: var(--blog-shadow) !important;
-  border: 1px solid var(--glass-border) !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  backdrop-filter: blur(20px);
 }
 
-.card-widget:hover {
+/* ========================================
+   Index Page Post Cards
+   ======================================== */
+#recent-posts .recent-post-item {
+  transition: all 0.4s ease !important;
+  border-radius: var(--blog-radius) !important;
+  overflow: hidden;
+}
+
+#recent-posts .recent-post-item:hover {
   transform: translateY(-8px) !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 20px 50px rgba(73, 177, 245, 0.15) !important;
 }
 
-/* ---- Author Card ---- */
-.card-author-img {
-  border: 3px solid transparent !important;
-  background-image: linear-gradient(white, white), linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
-  background-origin: border-box !important;
-  background-clip: padding-box, border-box !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+#recent-posts .recent-post-item .post_cover {
+  overflow: hidden;
 }
 
-.card-author-img:hover {
-  transform: rotate(360deg) scale(1.1) !important;
-  box-shadow: 0 0 30px rgba(73, 177, 245, 0.4) !important;
+#recent-posts .recent-post-item .post_cover img {
+  transition: transform 0.5s ease !important;
 }
 
-/* ---- Announcement Card ---- */
-.card-announcement {
-  background: linear-gradient(135deg, rgba(73, 177, 245, 0.08), rgba(0, 196, 182, 0.08)) !important;
-  border-left: 4px solid var(--blog-primary) !important;
-  backdrop-filter: blur(10px);
+#recent-posts .recent-post-item:hover .post_cover img {
+  transform: scale(1.08) !important;
 }
 
-/* ---- TOC Styling ---- */
+/* ========================================
+   Post Navigation
+   ======================================== */
+.post-nav-item {
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  padding: 16px 20px !important;
+}
+
+.post-nav-item:hover {
+  background: rgba(73, 177, 245, 0.06) !important;
+  transform: translateX(6px) !important;
+}
+
+/* ========================================
+   Related Posts
+   ======================================== */
+.relatedPosts_list {
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.relatedPosts_list:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: var(--blog-shadow) !important;
+}
+
+/* ========================================
+   TOC (Table of Contents)
+   ======================================== */
 .toc-content .toc-link {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  border-radius: 6px !important;
-  padding: 6px 12px !important;
+  transition: all 0.3s ease !important;
+  border-radius: 4px !important;
+  padding: 4px 10px !important;
 }
 
 .toc-content .toc-link:hover {
   background: rgba(73, 177, 245, 0.1) !important;
   color: var(--blog-primary) !important;
-  transform: translateX(8px);
 }
 
 .toc-content .active {
@@ -392,19 +435,21 @@ figure.highlight {
   background: rgba(73, 177, 245, 0.08) !important;
 }
 
-/* ---- Footer Styling ---- */
+/* ========================================
+   Footer
+   ======================================== */
 #footer {
   background: linear-gradient(135deg, #0f0f1a, #1a1a3e) !important;
-  backdrop-filter: blur(20px);
   border-top: 1px solid rgba(73, 177, 245, 0.2);
 }
 
 #footer .footer-custom-text {
   color: var(--blog-primary) !important;
-  font-size: 1.1em !important;
 }
 
-/* ---- Scrollbar Styling ---- */
+/* ========================================
+   Scrollbar
+   ======================================== */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -412,108 +457,136 @@ figure.highlight {
 
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.02);
-  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--blog-primary), var(--blog-secondary));
   border-radius: 4px;
-  transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--blog-accent);
-  transform: scale(1.2);
-}
-
-/* ---- Selection Color ---- */
-::selection {
-  background: rgba(73, 177, 245, 0.3) !important;
-  color: inherit !important;
-}
-
-/* ---- Loading Animation ---- */
-.pace .pace-progress {
-  background: linear-gradient(90deg, var(--blog-primary), var(--blog-secondary), var(--blog-accent)) !important;
-  height: 3px !important;
-  box-shadow: 0 0 15px rgba(73, 177, 245, 0.5);
-}
-
-/* ---- Button Styling ---- */
-#page .page-btn:hover,
-#to_comment:hover {
-  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
-  color: white !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 8px 25px rgba(73, 177, 245, 0.3) !important;
-}
-
-/* ---- Post Navigation ---- */
-.post-nav-item {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  border-radius: var(--blog-radius) !important;
-  backdrop-filter: blur(10px);
-}
-
-.post-nav-item:hover {
-  background: rgba(73, 177, 245, 0.08) !important;
-  transform: translateX(8px) scale(1.02) !important;
-  box-shadow: var(--blog-shadow) !important;
-}
-
-/* ---- Categories Page ---- */
-.category-lists .category-list {
-  text-align: center;
-}
-
-.category-lists .category-list a {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.category-lists .category-list a:hover {
-  color: var(--blog-primary) !important;
-  transform: scale(1.05);
-}
-
-.category-lists .category-list .category-list-count {
-  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
-  color: white !important;
-  border-radius: 20px !important;
-  padding: 4px 14px !important;
-  font-size: 0.85em !important;
-  box-shadow: 0 4px 15px rgba(73, 177, 245, 0.3);
 }
 
 /* ========================================
-   Mobile Optimizations
+   Selection
    ======================================== */
+::selection {
+  background: rgba(73, 177, 245, 0.3) !important;
+}
 
-/* ---- Tablet (768px and below) ---- */
+/* ========================================
+   Loading Bar
+   ======================================== */
+.pace .pace-progress {
+  background: linear-gradient(90deg, var(--blog-primary), var(--blog-secondary)) !important;
+  height: 3px !important;
+}
+
+/* ========================================
+   Back to Top Button
+   ======================================== */
+#go-up {
+  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+#go-up:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 20px rgba(73, 177, 245, 0.4) !important;
+}
+
+/* ========================================
+   Post Copyright
+   ======================================== */
+.post-copyright {
+  border-radius: 8px !important;
+  border-left: 4px solid var(--blog-primary) !important;
+  background: rgba(73, 177, 245, 0.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+.post-copyright:hover {
+  border-left-color: var(--blog-accent) !important;
+}
+
+/* ========================================
+   Busuanzi Counter
+   ======================================== */
+#busuanzi_value_site_pv,
+#busuanzi_value_site_uv,
+#busuanzi_value_page_pv {
+  color: var(--blog-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* ========================================
+   Archive Page
+   ======================================== */
+.article-sort {
+  border-left: 3px solid var(--blog-primary) !important;
+  padding-left: 24px !important;
+}
+
+.article-sort-year {
+  color: var(--blog-primary) !important;
+  font-size: 1.5em !important;
+  font-weight: 700 !important;
+}
+
+/* ========================================
+   Dark Mode Toggle
+   ======================================== */
+#darkmode {
+  transition: all 0.3s ease !important;
+}
+
+#darkmode:hover {
+  transform: rotate(30deg) !important;
+}
+
+/* ========================================
+   Hero Section Animation
+   ======================================== */
+#site-info {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   Search Dialog
+   ======================================== */
+#search-page .search-dialog {
+  border-radius: 12px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+}
+
+#search-page input {
+  border-radius: 8px !important;
+  border: 2px solid var(--blog-border) !important;
+  transition: all 0.3s ease !important;
+}
+
+#search-page input:focus {
+  border-color: var(--blog-primary) !important;
+  box-shadow: 0 0 0 3px rgba(73, 177, 245, 0.2) !important;
+}
+
+/* ========================================
+   Mobile Optimizations (768px and below)
+   ======================================== */
 @media screen and (max-width: 768px) {
-  :root {
-    --blog-radius: 12px;
-    --blog-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  }
-
-  /* Hero Section */
-  #site-info {
-    padding: 0 20px;
-  }
-
-  #site-info .site-title {
-    font-size: 1.8em !important;
-  }
-
-  #site-info .site-subtitle {
-    font-size: 1em !important;
-  }
-
-  /* Post Content */
+  /* Article Content */
   #post-content,
   #article-container {
     font-size: 15px;
-    line-height: 1.75;
-    padding: 0 12px;
+    line-height: 1.8;
+    padding: 20px 16px;
   }
 
   #post-content h1,
@@ -524,20 +597,23 @@ figure.highlight {
   #post-content h2,
   #article-container h2 {
     font-size: 1.3em;
-    margin-top: 1.5em;
+    margin-top: 1.6em;
+    padding-left: 12px;
   }
 
   #post-content h3,
   #article-container h3 {
-    font-size: 1.15em;
+    font-size: 1.1em;
+    padding-left: 10px;
   }
 
-  /* Images - Full width on mobile */
+  /* Images - full width on mobile */
   #post-content img,
   #article-container img {
     border-radius: 8px;
-    width: 100%;
-    height: auto;
+    margin: 16px -16px;
+    width: calc(100% + 32px);
+    max-width: calc(100% + 32px);
   }
 
   #post-content img:hover,
@@ -545,22 +621,21 @@ figure.highlight {
     transform: none;
   }
 
-  /* Tables - Horizontal scroll */
+  /* Tables - horizontal scroll */
   #post-content table,
   #article-container table {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border-radius: 8px;
   }
 
   #post-content table th,
-  #article-container table th,
   #post-content table td,
+  #article-container table th,
   #article-container table td {
-    padding: 10px 12px;
-    white-space: nowrap;
+    padding: 10px 14px;
     font-size: 14px;
+    white-space: nowrap;
   }
 
   /* Blockquote */
@@ -568,87 +643,47 @@ figure.highlight {
   #article-container blockquote {
     padding: 12px 16px;
     margin: 16px 0;
-    border-radius: 0 8px 8px 0;
   }
 
-  #post-content blockquote:hover,
-  #article-container blockquote:hover {
-    transform: translateX(4px);
-  }
-
-  /* Code blocks */
+  /* Code blocks - full width */
   figure.highlight {
-    border-radius: 8px !important;
-    margin: 16px -12px;
-    width: calc(100% + 24px);
-  }
-
-  #post-content code,
-  #article-container code {
-    font-size: 0.85em;
-    padding: 2px 6px;
+    margin: 16px -16px;
+    width: calc(100% + 32px);
+    border-radius: 0 !important;
   }
 
   /* Lists */
-  #post-content ul li,
-  #article-container ul li {
-    margin-bottom: 0.4em;
-  }
-
   #post-content ul li:hover,
   #article-container ul li:hover {
     transform: translateX(4px);
   }
 
-  /* Article Cards */
+  /* Article Sort */
   .article-sort-item {
-    padding: 16px !important;
-    margin-bottom: 12px !important;
+    padding: 12px 16px !important;
   }
 
   .article-sort-item:hover {
     transform: translateX(4px) !important;
   }
 
-  .article-sort-item__title {
-    font-size: 1em !important;
-  }
-
-  /* Index Post Cards */
+  /* Index Cards */
   #recent-posts .recent-post-item {
     margin-bottom: 16px !important;
-    border-radius: 12px !important;
   }
 
   #recent-posts .recent-post-item:hover {
     transform: translateY(-4px) !important;
   }
 
-  #recent-posts .recent-post-item .post_cover {
-    height: 180px !important;
-  }
-
-  #recent-posts .recent-post-item .post_info {
-    padding: 12px 16px !important;
-  }
-
-  /* Sidebar - Hidden on mobile, accessible via button */
-  .aside-content {
-    padding: 12px !important;
-  }
-
-  .card-widget {
-    margin-bottom: 12px !important;
-    padding: 16px !important;
-  }
-
+  /* Sidebar */
   .card-widget:hover {
     transform: none !important;
   }
 
   /* Tags */
   .tag-cloud a {
-    padding: 4px 10px !important;
+    padding: 3px 10px !important;
     font-size: 0.85em !important;
   }
 
@@ -656,177 +691,50 @@ figure.highlight {
     transform: scale(1.05) !important;
   }
 
-  /* Categories */
-  .category-lists .category-list a {
-    font-size: 0.95em;
+  /* Post Navigation */
+  .post-nav-item:hover {
+    transform: translateX(4px) !important;
   }
 
-  /* TOC - Sticky on mobile */
+  /* Related Posts */
+  .relatedPosts_list:hover {
+    transform: translateY(-4px) !important;
+  }
+
+  /* Footer */
+  #footer {
+    padding: 30px 16px !important;
+  }
+
+  /* Hero */
+  #site-info .site-title {
+    font-size: 1.8em !important;
+  }
+
+  #site-info .site-subtitle {
+    font-size: 1em !important;
+  }
+
+  /* Back to Top */
+  #go-up {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* TOC */
   #card-toc {
     max-height: 60vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
-
-  .toc-content .toc-link {
-    padding: 6px 10px !important;
-    font-size: 0.9em;
-  }
-
-  /* Footer */
-  #footer {
-    padding: 30px 20px !important;
-  }
-
-  #footer .footer-custom-text {
-    font-size: 0.95em !important;
-  }
-
-  /* Buttons */
-  #go-up {
-    width: 40px !important;
-    height: 40px !important;
-    bottom: 20px !important;
-    right: 20px !important;
-  }
-
-  /* Navigation */
-  .menus_item_child {
-    position: fixed !important;
-    top: auto !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    border-radius: 16px 16px 0 0 !important;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1) !important;
-    max-height: 60vh;
-    overflow-y: auto;
-  }
-
-  /* Post Meta */
-  .post-meta__date {
-    font-size: 0.85em !important;
-  }
-
-  .post-meta__categories a {
-    padding: 3px 10px !important;
-    font-size: 0.75em !important;
-  }
-
-  /* Post Copyright */
-  .post-copyright {
-    padding: 12px 16px !important;
-    font-size: 0.85em;
-  }
-
-  /* Related Posts */
-  .relatedPosts {
-    padding: 0 12px;
-  }
-
-  .relatedPosts_list {
-    margin-bottom: 12px;
-  }
-
-  .relatedPosts_list:hover {
-    transform: translateY(-4px) !important;
-  }
-
-  /* Search Dialog */
-  #search-page .search-dialog {
-    width: 90% !important;
-    max-width: none !important;
-    border-radius: 12px !important;
-  }
-
-  #search-page input {
-    font-size: 16px !important;
-    padding: 12px 16px !important;
-  }
-
-  /* Comments */
-  #post-comment {
-    padding: 16px 12px !important;
-  }
-
-  /* Disable heavy animations on mobile */
-  #page::before,
-  #page::after {
-    animation: none;
-  }
-
-  .card-author-img:hover {
-    transform: rotate(180deg) !important;
-  }
-
-  /* Horizontal Rule */
-  #post-content hr,
-  #article-container hr {
-    margin: 1.5em 0;
-    animation: none;
-  }
-
-  /* Better touch targets */
-  a, button, .post-nav-item {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  /* Post Navigation */
-  .post-nav-item {
-    padding: 12px 16px !important;
-  }
-
-  .post-nav-item:hover {
-    transform: translateX(4px) !important;
-  }
-
-  /* Archive Page */
-  .article-sort {
-    padding-left: 16px !important;
-  }
-
-  .article-sort-year {
-    font-size: 1.3em !important;
-  }
-
-  /* 404 Page */
-  .error-content {
-    padding: 20px;
-  }
-
-  .error-content h1 {
-    font-size: 2em !important;
-  }
-
-  /* Busuanzi */
-  #busuanzi_value_site_pv,
-  #busuanzi_value_site_uv,
-  #busuanzi_value_page_pv {
-    font-size: 1em !important;
-  }
 }
 
 /* ---- Small Mobile (480px and below) ---- */
 @media screen and (max-width: 480px) {
-  #site-info .site-title {
-    font-size: 1.5em !important;
-  }
-
-  #site-info .site-subtitle {
-    font-size: 0.9em !important;
-  }
-
   #post-content,
   #article-container {
     font-size: 14px;
-    padding: 0 8px;
-  }
-
-  #post-content h1,
-  #article-container h1 {
-    font-size: 1.35em;
+    padding: 16px 12px;
   }
 
   #post-content h2,
@@ -834,45 +742,17 @@ figure.highlight {
     font-size: 1.2em;
   }
 
-  #recent-posts .recent-post-item .post_cover {
-    height: 150px !important;
-  }
-
-  .article-sort-item {
-    padding: 12px !important;
-  }
-
-  .card-widget {
-    padding: 12px !important;
+  #site-info .site-title {
+    font-size: 1.5em !important;
   }
 
   figure.highlight {
-    margin: 12px -8px;
-    width: calc(100% + 16px);
-  }
-
-  .tag-cloud a {
-    padding: 3px 8px !important;
-    font-size: 0.8em !important;
+    margin: 12px -12px;
+    width: calc(100% + 24px);
   }
 }
 
-/* ---- Landscape Mobile ---- */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-  #site-info {
-    padding-top: 10vh !important;
-  }
-
-  #site-info .site-title {
-    font-size: 1.3em !important;
-  }
-
-  .menus_item_child {
-    max-height: 80vh;
-  }
-}
-
-/* ---- Touch Device Optimizations ---- */
+/* ---- Touch Devices ---- */
 @media (hover: none) and (pointer: coarse) {
   /* Remove hover effects that don't work on touch */
   .card-widget:hover {
@@ -888,30 +768,11 @@ figure.highlight {
   }
 
   /* Larger touch targets */
-  .post-meta__categories a {
-    padding: 6px 14px !important;
-  }
-
-  .tag-cloud a {
-    padding: 6px 12px !important;
-  }
-
-  /* Tap highlight color */
   a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     -webkit-tap-highlight-color: rgba(73, 177, 245, 0.2);
-  }
-
-  /* Disable tooltips */
-  [data-title]::after {
-    display: none !important;
-  }
-
-  /* Smooth momentum scrolling */
-  .aside-content,
-  #card-toc,
-  .menus_item_child {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
   }
 }
 
@@ -924,284 +785,4 @@ figure.highlight {
   #footer {
     padding-bottom: env(safe-area-inset-bottom) !important;
   }
-
-  #go-up {
-    bottom: calc(20px + env(safe-area-inset-bottom)) !important;
-  }
-}
-
-/* ---- Smooth Transitions ---- */
-* {
-  transition-property: background-color, border-color, color, fill, stroke, transform, box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-}
-
-/* ---- Post Content Enhancements ---- */
-#post-content h3 {
-  position: relative;
-  padding-left: 18px;
-}
-
-#post-content h3::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 22px;
-  background: linear-gradient(180deg, var(--blog-primary), var(--blog-secondary));
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-#post-content h3:hover::before {
-  height: 28px;
-  background: var(--blog-accent);
-}
-
-/* ---- Horizontal Rule Styling ---- */
-#post-content hr,
-#article-container hr {
-  border: none;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--blog-primary), var(--blog-secondary), var(--blog-accent), transparent);
-  margin: 2.5em 0;
-  animation: hrShimmer 3s ease-in-out infinite;
-}
-
-@keyframes hrShimmer {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-/* ---- Strong/Bold Styling ---- */
-#post-content strong,
-#article-container strong {
-  color: var(--blog-primary);
-  font-weight: 600;
-}
-
-/* ---- Note/Alert Styling ---- */
-.note {
-  border-radius: var(--blog-radius) !important;
-  border: none !important;
-  box-shadow: var(--blog-shadow) !important;
-  backdrop-filter: blur(10px);
-}
-
-/* ---- Post Copyright ---- */
-.post-copyright {
-  border-radius: var(--blog-radius) !important;
-  border-left: 4px solid var(--blog-primary) !important;
-  background: rgba(73, 177, 245, 0.05) !important;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.post-copyright:hover {
-  border-left-color: var(--blog-accent) !important;
-  transform: translateX(4px);
-}
-
-/* ---- Related Posts ---- */
-.relatedPosts_list {
-  border-radius: var(--blog-radius) !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  backdrop-filter: blur(10px);
-}
-
-.relatedPosts_list:hover {
-  transform: translateY(-8px) scale(1.03) !important;
-  box-shadow: 0 20px 50px rgba(73, 177, 245, 0.2) !important;
-}
-
-/* ---- Busuanzi Counter ---- */
-#busuanzi_value_site_pv,
-#busuanzi_value_site_uv,
-#busuanzi_value_page_pv {
-  color: var(--blog-primary) !important;
-  font-weight: 600 !important;
-  font-size: 1.1em !important;
-}
-
-/* ---- Comments Section ---- */
-#post-comment {
-  border-top: 2px solid var(--blog-border) !important;
-  padding-top: 2em !important;
-}
-
-/* ---- Archive Page ---- */
-.article-sort {
-  border-left: 3px solid var(--blog-primary) !important;
-  padding-left: 24px !important;
-}
-
-.article-sort-year {
-  color: var(--blog-primary) !important;
-  font-size: 1.5em !important;
-  font-weight: 700 !important;
-}
-
-/* ---- Category/Tag Labels ---- */
-.article-sort-item__categories a {
-  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
-  color: white !important;
-  padding: 4px 14px !important;
-  border-radius: 20px !important;
-  font-size: 0.8em !important;
-}
-
-/* ---- Mobile Menu ---- */
-#mobile-sidebar .mobile-sidebar-links a {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-#mobile-sidebar .mobile-sidebar-links a:hover {
-  color: var(--blog-primary) !important;
-  transform: translateX(12px) !important;
-}
-
-/* ---- Dark Mode Toggle ---- */
-#darkmode {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-#darkmode:hover {
-  transform: rotate(30deg) scale(1.2) !important;
-}
-
-/* ---- Back to Top Button ---- */
-#go-up {
-  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
-  border-radius: 50% !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  box-shadow: 0 4px 15px rgba(73, 177, 245, 0.3);
-}
-
-#go-up:hover {
-  transform: translateY(-8px) scale(1.1) !important;
-  box-shadow: 0 12px 30px rgba(73, 177, 245, 0.5) !important;
-}
-
-/* ---- Search Styling ---- */
-#search-page .search-dialog {
-  border-radius: var(--blog-radius) !important;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2) !important;
-  backdrop-filter: blur(30px);
-  border: 1px solid var(--glass-border);
-}
-
-#search-page input {
-  border-radius: var(--blog-radius) !important;
-  border: 2px solid var(--blog-border) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  backdrop-filter: blur(10px);
-}
-
-#search-page input:focus {
-  border-color: var(--blog-primary) !important;
-  box-shadow: 0 0 0 4px rgba(73, 177, 245, 0.2), 0 8px 25px rgba(73, 177, 245, 0.15) !important;
-  transform: translateY(-2px);
-}
-
-/* ---- Index Page Post Cards ---- */
-#recent-posts .recent-post-item {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  border-radius: var(--blog-radius) !important;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-}
-
-#recent-posts .recent-post-item:hover {
-  transform: translateY(-12px) scale(1.02) !important;
-  box-shadow: 0 25px 60px rgba(73, 177, 245, 0.2) !important;
-}
-
-#recent-posts .recent-post-item .post_cover {
-  overflow: hidden;
-}
-
-#recent-posts .recent-post-item .post_cover img {
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-#recent-posts .recent-post-item:hover .post_cover img {
-  transform: scale(1.1) !important;
-}
-
-/* ---- Hero Section Enhancements ---- */
-#site-info {
-  animation: fadeInUp 1s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---- Post Top Image ---- */
-#post-top-img {
-  position: relative;
-  overflow: hidden;
-}
-
-#post-top-img::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30%;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
-}
-
-/* ---- Noise Texture Overlay ---- */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.015;
-  z-index: 9999;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-}
-
-/* ---- Card Shimmer Effect ---- */
-.card-widget::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.6s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.card-widget:hover::before {
-  left: 100%;
-}
-
-/* ---- Glow Effect on Interactive Elements ---- */
-.post-meta__categories a:hover,
-.tag-cloud a:hover,
-#go-up:hover {
-  filter: brightness(1.1);
 }
