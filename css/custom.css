@@ -58,6 +58,12 @@
 /* ========================================
    Article Content - PC Layout
    ======================================== */
+/* 外层容器 padding 清零，交给 article-container 统一控制 */
+#post,
+.post-content {
+  padding: 0 !important;
+}
+
 #post-content,
 #article-container {
   font-size: 17px;
@@ -65,7 +71,7 @@
   letter-spacing: 0.02em;
   max-width: 800px;
   margin: 0 auto;
-  padding: 30px 40px 30px 48px;
+  padding: 32px 40px !important;
   color: var(--text-primary);
 }
 
@@ -655,7 +661,7 @@ figure.highlight {
   #article-container {
     font-size: 15px;
     line-height: 1.8;
-    padding: 20px 20px;
+    padding: 20px 16px !important;
   }
 
   #post-content h1,
@@ -819,7 +825,7 @@ figure.highlight {
   #post-content,
   #article-container {
     font-size: 14px;
-    padding: 16px 16px;
+    padding: 16px 14px !important;
   }
 
   #post-content h2,
