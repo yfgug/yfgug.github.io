@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>QQFlow-Rust - QQ聊天记录导出工具 | 旅行与生活</title><meta name="author" content="YFGUG"><meta name="copyright" content="YFGUG"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="📝 项目简介QQFlow-Rust 是一款用于导出 QQ NT（新版 QQ）聊天记录的桌面工具，基于 Tauri 2 + React + Rust 构建。 所有数据仅在本地处理，绝不上传至任何服务器。 项目地址 GitHub：yfgug&#x2F;qqflow-rust   ✨ 功能特点1. 密钥提取通过 Windows Debug API 注入 QQ 进程，自动提取 SQLCipher 数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QQFlow-Rust - QQ聊天记录导出工具">
+<meta property="og:url" content="https://luanjiahao.qzz.io/2026/05/20/qqflow-rust/index.html">
+<meta property="og:site_name" content="旅行与生活">
+<meta property="og:description" content="📝 项目简介QQFlow-Rust 是一款用于导出 QQ NT（新版 QQ）聊天记录的桌面工具，基于 Tauri 2 + React + Rust 构建。 所有数据仅在本地处理，绝不上传至任何服务器。 项目地址 GitHub：yfgug&#x2F;qqflow-rust   ✨ 功能特点1. 密钥提取通过 Windows Debug API 注入 QQ 进程，自动提取 SQLCipher 数据库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luanjiahao.qzz.io/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-05-20T10:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-27T12:30:34.190Z">
+<meta property="article:author" content="YFGUG">
+<meta property="article:tag" content="QQ">
+<meta property="article:tag" content="Rust">
+<meta property="article:tag" content="Tauri">
+<meta property="article:tag" content="桌面应用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://luanjiahao.qzz.io/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "QQFlow-Rust - QQ聊天记录导出工具",
+  "url": "https://luanjiahao.qzz.io/2026/05/20/qqflow-rust/",
+  "image": "https://luanjiahao.qzz.io/img/butterfly-icon.png",
+  "datePublished": "2026-05-20T10:00:00.000Z",
+  "dateModified": "2026-05-27T12:30:34.190Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "YFGUG",
+      "url": "https://luanjiahao.qzz.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://luanjiahao.qzz.io/2026/05/20/qqflow-rust/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'QQFlow-Rust - QQ聊天记录导出工具',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.2"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">旅行与生活</span></a><a class="nav-page-title" href="/"><span class="site-name">QQFlow-Rust - QQ聊天记录导出工具</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">QQFlow-Rust - QQ聊天记录导出工具</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-20T10:00:00.000Z" title="发表于 2026-05-20 18:00:00">2026-05-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-27T12:30:34.190Z" title="更新于 2026-05-27 20:30:34">2026-05-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="📝-项目简介"><a href="#📝-项目简介" class="headerlink" title="📝 项目简介"></a>📝 项目简介</h2><p><strong>QQFlow-Rust</strong> 是一款用于导出 QQ NT（新版 QQ）聊天记录的桌面工具，基于 <strong>Tauri 2 + React + Rust</strong> 构建。</p>
+<p><strong>所有数据仅在本地处理，绝不上传至任何服务器。</strong></p>
+<h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><ul>
+<li>GitHub：<a target="_blank" rel="noopener" href="https://github.com/yfgug/qqflow-rust">yfgug&#x2F;qqflow-rust</a></li>
+</ul>
+<hr>
+<h2 id="✨-功能特点"><a href="#✨-功能特点" class="headerlink" title="✨ 功能特点"></a>✨ 功能特点</h2><h3 id="1-密钥提取"><a href="#1-密钥提取" class="headerlink" title="1. 密钥提取"></a>1. 密钥提取</h3><p>通过 Windows Debug API 注入 QQ 进程，自动提取 SQLCipher 数据库加密密钥</p>
+<h3 id="2-数据库解密"><a href="#2-数据库解密" class="headerlink" title="2. 数据库解密"></a>2. 数据库解密</h3><p>流式复制 + 磁盘缓存，支持大数据库（190MB+）</p>
+<h3 id="3-聊天导出"><a href="#3-聊天导出" class="headerlink" title="3. 聊天导出"></a>3. 聊天导出</h3><ul>
+<li>TXT &#x2F; CSV 格式</li>
+<li>支持选择性导出指定群聊或私聊</li>
+</ul>
+<h3 id="4-聊天分析"><a href="#4-聊天分析" class="headerlink" title="4. 聊天分析"></a>4. 聊天分析</h3><ul>
+<li>24h 分布</li>
+<li>类型饼图</li>
+<li>成员排行</li>
+<li>高频短语</li>
+</ul>
+<h3 id="5-多账号支持"><a href="#5-多账号支持" class="headerlink" title="5. 多账号支持"></a>5. 多账号支持</h3><p>每个 QQ 号独立缓存，密钥独立存储</p>
+<hr>
+<h2 id="🛠️-技术栈"><a href="#🛠️-技术栈" class="headerlink" title="🛠️ 技术栈"></a>🛠️ 技术栈</h2><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>前端</strong></td>
+<td>React 18 + TypeScript + Vite + SCSS + ECharts</td>
+</tr>
+<tr>
+<td><strong>后端</strong></td>
+<td>Rust + Tauri 2 + rusqlite (SQLCipher)</td>
+</tr>
+<tr>
+<td><strong>打包</strong></td>
+<td>Tauri CLI (MSI &#x2F; NSIS)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📊-与原版对比"><a href="#📊-与原版对比" class="headerlink" title="📊 与原版对比"></a>📊 与原版对比</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>原版 (Electron + Python)</th>
+<th>Rust 版 (Tauri)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>桌面框架</td>
+<td>Electron 33</td>
+<td>Tauri 2</td>
+</tr>
+<tr>
+<td>后端语言</td>
+<td>Python + Flask</td>
+<td>Rust (原生)</td>
+</tr>
+<tr>
+<td>安装包大小</td>
+<td>~150MB</td>
+<td>~10MB</td>
+</tr>
+<tr>
+<td>内存占用</td>
+<td>~200MB</td>
+<td>~30MB</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🚀-快速开始"><a href="#🚀-快速开始" class="headerlink" title="🚀 快速开始"></a>🚀 快速开始</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
+<li>Windows 10&#x2F;11（64 位）</li>
+<li>QQ NT（新版 QQ，基于 Electron 架构）</li>
+</ul>
+<h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装前端依赖</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动开发模式（热重载）</span></span><br><span class="line">npx tauri dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建</span></span><br><span class="line">npx tauri build</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🔒-安全说明"><a href="#🔒-安全说明" class="headerlink" title="🔒 安全说明"></a>🔒 安全说明</h2><ul>
+<li>所有数据处理均在本地完成，不联网</li>
+<li>密钥通过 XOR 混淆 + Base64 编码后存储在本地</li>
+<li>应用不请求任何网络权限</li>
+</ul>
+<hr>
+<h2 id="💡-灵感来源"><a href="#💡-灵感来源" class="headerlink" title="💡 灵感来源"></a>💡 灵感来源</h2><p>本项目的 MessageStore 缓存架构和导出流程参考了 <a target="_blank" rel="noopener" href="https://github.com/hicccc77/WeFlow">WeFlow</a>（微信聊天记录导出工具），在此感谢 WeFlow 作者的开源贡献。</p>
+<hr>
+<blockquote>
+<p><em>“数据安全，从本地开始。”</em></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://luanjiahao.qzz.io">YFGUG</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://luanjiahao.qzz.io/2026/05/20/qqflow-rust/">https://luanjiahao.qzz.io/2026/05/20/qqflow-rust/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://luanjiahao.qzz.io" target="_blank">旅行与生活</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Rust/">Rust</a><a class="post-meta__tags" href="/tags/Tauri/">Tauri</a><a class="post-meta__tags" href="/tags/QQ/">QQ</a><a class="post-meta__tags" href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/">桌面应用</a></div><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/05/27/about/" title="关于我"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">关于我</div></div><div class="info-2"><div class="info-item-1">👋 你好一个热爱徒步、热爱生活的普通人。 🥾 我的徒步经历 南太行（马武寨→韩口）- 20kg重装，2天1夜 武功山沈明线（沈子村→明月山）- 重装穿越，3天2夜 华东K2 - 计划中…  💡 关于这个博客记录我的徒步经历、装备评测、路线攻略，以及生活中的点滴。 🔧 技术爱好 喜欢折腾各种开源项目 喜欢用 Rust、Python、Java 做一些有趣的东西 AI、自动化、物联网  📫 联系我 GitHub：@yfgug 博客：luanjiahao.qzz.io    “山就在那里，所以我要去。”  </div></div></div></a><a class="pagination-related" href="/2026/05/18/bilibili-game-scraper/" title="B站游戏流水数据爬取与分析系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">B站游戏流水数据爬取与分析系统</div></div><div class="info-2"><div class="info-item-1">📊 项目简介B站游戏流水数据爬取与分析系统 是一个完整的数据管道系统，用于爬取B站游戏中心数据、分析游戏流水趋势。 项目地址 GitHub：yfgug&#x2F;bgame   ✨ 功能特点1. 数据采集 采集B站游戏中心的游戏信息（名称、类型、平台、评分、关注数、下载量等） 获取排行榜数据（热度榜、畅销榜、新游榜、预约榜、人气榜）  2. 流水估算基于关注数和评分的流水（收入）估算模型 3. 统计分析 多维度统计分析 相关性分析  4. 可视化生成7种专业级Matplotlib可视化图表 5. 定时调度支持定时自动爬取，持续积累数据  🛠️ 技术栈   组件 技术    爬虫 Python + Requests + BeautifulSoup   数据处理 Pandas + NumPy   数据库 SQLite   可视化 Matplotlib   调度 APScheduler    📈 数据获取模式   模式 说明 适用场景    demo 内置88款真实国产游戏模板生成的模拟数据 开发调试、离线演示   web 从B站游戏中心HTML页面进行DOM解析抓取 实际数据采...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">YFGUG</div><div class="author-info-description">一个关于徒步、旅行和生活的博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9D-%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">📝 项目简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="toc-number">1.1.</span> <span class="toc-text">项目地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%A8-%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">✨ 功能特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AF%86%E9%92%A5%E6%8F%90%E5%8F%96"><span class="toc-number">2.1.</span> <span class="toc-text">1. 密钥提取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A7%A3%E5%AF%86"><span class="toc-number">2.2.</span> <span class="toc-text">2. 数据库解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%81%8A%E5%A4%A9%E5%AF%BC%E5%87%BA"><span class="toc-number">2.3.</span> <span class="toc-text">3. 聊天导出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%81%8A%E5%A4%A9%E5%88%86%E6%9E%90"><span class="toc-number">2.4.</span> <span class="toc-text">4. 聊天分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%9A%E8%B4%A6%E5%8F%B7%E6%94%AF%E6%8C%81"><span class="toc-number">2.5.</span> <span class="toc-text">5. 多账号支持</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">3.</span> <span class="toc-text">🛠️ 技术栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8A-%E4%B8%8E%E5%8E%9F%E7%89%88%E5%AF%B9%E6%AF%94"><span class="toc-number">4.</span> <span class="toc-text">📊 与原版对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%80-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-number">5.</span> <span class="toc-text">🚀 快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="toc-number">5.1.</span> <span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">5.2.</span> <span class="toc-text">开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA"><span class="toc-number">5.3.</span> <span class="toc-text">构建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%92-%E5%AE%89%E5%85%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">6.</span> <span class="toc-text">🔒 安全说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="toc-number">7.</span> <span class="toc-text">💡 灵感来源</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/27/about/" title="关于我">关于我</a><time datetime="2026-05-27T12:00:00.000Z" title="发表于 2026-05-27 20:00:00">2026-05-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/20/qqflow-rust/" title="QQFlow-Rust - QQ聊天记录导出工具">QQFlow-Rust - QQ聊天记录导出工具</a><time datetime="2026-05-20T10:00:00.000Z" title="发表于 2026-05-20 18:00:00">2026-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/18/bilibili-game-scraper/" title="B站游戏流水数据爬取与分析系统">B站游戏流水数据爬取与分析系统</a><time datetime="2026-05-18T10:00:00.000Z" title="发表于 2026-05-18 18:00:00">2026-05-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/15/hiking-gear-recommendations/" title="500元以内重装徒步鞋推荐">500元以内重装徒步鞋推荐</a><time datetime="2026-05-15T04:00:00.000Z" title="发表于 2026-05-15 12:00:00">2026-05-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/05/11/east-china-k2-vs-jiuhuashan/" title="华东K2 vs 九华山南北穿越 - 难度对比">华东K2 vs 九华山南北穿越 - 难度对比</a><time datetime="2026-05-11T14:00:00.000Z" title="发表于 2026-05-11 22:00:00">2026-05-11</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By YFGUG</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
