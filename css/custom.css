@@ -1,0 +1,541 @@
+/* ========================================
+   Custom Styles for 旅行与生活 Blog
+   Elegant & Nature-inspired Theme
+   ======================================== */
+
+/* ---- Root Variables ---- */
+:root {
+  --blog-primary: #49B1F5;
+  --blog-secondary: #00c4b6;
+  --blog-accent: #FF7242;
+  --blog-bg-light: #f8f9fa;
+  --blog-text: #2c3e50;
+  --blog-border: rgba(73, 177, 245, 0.15);
+  --blog-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --blog-radius: 12px;
+}
+
+[data-theme="dark"] {
+  --blog-bg-light: #1a1a2e;
+  --blog-text: #e0e0e0;
+  --blog-border: rgba(73, 177, 245, 0.2);
+  --blog-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- Global Typography ---- */
+#post-content,
+#article-container {
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Headings with Gradient Underline ---- */
+#post-content h2,
+#article-container h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+  margin-top: 2em;
+}
+
+#post-content h2::after,
+#article-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blog-primary), var(--blog-secondary));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+#post-content h2:hover::after,
+#article-container h2:hover::after {
+  width: 120%;
+}
+
+/* ---- Blockquote Styling ---- */
+#post-content blockquote,
+#article-container blockquote {
+  border-left: 4px solid var(--blog-primary);
+  background: rgba(73, 177, 245, 0.05);
+  border-radius: 0 var(--blog-radius) var(--blog-radius) 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-style: italic;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] #post-content blockquote,
+[data-theme="dark"] #article-container blockquote {
+  background: rgba(73, 177, 245, 0.08);
+  color: #aaa;
+}
+
+#post-content blockquote:hover,
+#article-container blockquote:hover {
+  border-left-color: var(--blog-accent);
+  background: rgba(255, 114, 66, 0.05);
+}
+
+/* ---- Table Styling ---- */
+#post-content table,
+#article-container table {
+  border-radius: var(--blog-radius);
+  overflow: hidden;
+  box-shadow: var(--blog-shadow);
+  border: 1px solid var(--blog-border);
+}
+
+#post-content table thead,
+#article-container table thead {
+  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary));
+  color: white;
+}
+
+#post-content table th,
+#article-container table th {
+  padding: 12px 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+#post-content table td,
+#article-container table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--blog-border);
+  text-align: center;
+}
+
+#post-content table tr:hover td,
+#article-container table tr:hover td {
+  background: rgba(73, 177, 245, 0.08);
+}
+
+/* ---- Code Block Styling ---- */
+#post-content code,
+#article-container code {
+  background: rgba(73, 177, 245, 0.1);
+  color: var(--blog-accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+figure.highlight {
+  border-radius: var(--blog-radius) !important;
+  box-shadow: var(--blog-shadow) !important;
+  border: 1px solid var(--blog-border) !important;
+}
+
+/* ---- Link Styling ---- */
+#post-content a,
+#article-container a {
+  color: var(--blog-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#post-content a:hover,
+#article-container a:hover {
+  color: var(--blog-accent);
+  border-bottom-color: var(--blog-accent);
+}
+
+/* ---- Image Styling ---- */
+#post-content img,
+#article-container img {
+  border-radius: var(--blog-radius);
+  box-shadow: var(--blog-shadow);
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+#post-content img:hover,
+#article-container img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- List Styling ---- */
+#post-content ul,
+#article-container ul {
+  list-style: none;
+  padding-left: 1.5em;
+}
+
+#post-content ul li,
+#article-container ul li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+#post-content ul li::before,
+#article-container ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  background: var(--blog-primary);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+#post-content ul li:hover::before,
+#article-container ul li:hover::before {
+  background: var(--blog-accent);
+  transform: scale(1.3);
+}
+
+/* ---- Card Hover Effects ---- */
+.article-sort-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: var(--blog-radius) !important;
+}
+
+.article-sort-item:hover {
+  transform: translateX(8px) !important;
+  box-shadow: var(--blog-shadow) !important;
+}
+
+/* ---- Post Meta Styling ---- */
+.post-meta__date {
+  color: var(--blog-primary) !important;
+}
+
+.post-meta__categories a {
+  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
+  color: white !important;
+  padding: 2px 10px !important;
+  border-radius: 20px !important;
+  font-size: 0.85em !important;
+  transition: all 0.3s ease !important;
+}
+
+.post-meta__categories a:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(73, 177, 245, 0.3) !important;
+}
+
+/* ---- Tag Styling ---- */
+.tag-cloud a {
+  transition: all 0.3s ease !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+}
+
+.tag-cloud a:hover {
+  background: var(--blog-primary) !important;
+  color: white !important;
+  transform: scale(1.05) !important;
+}
+
+/* ---- Aside Card Styling ---- */
+.card-widget {
+  border-radius: var(--blog-radius) !important;
+  box-shadow: var(--blog-shadow) !important;
+  border: 1px solid var(--blog-border) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card-widget:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ---- Author Card ---- */
+.card-author-img {
+  border: 3px solid var(--blog-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card-author-img:hover {
+  border-color: var(--blog-accent) !important;
+  transform: rotate(360deg) !important;
+}
+
+/* ---- Announcement Card ---- */
+.card-announcement {
+  background: linear-gradient(135deg, rgba(73, 177, 245, 0.1), rgba(0, 196, 182, 0.1)) !important;
+  border-left: 4px solid var(--blog-primary) !important;
+}
+
+/* ---- TOC Styling ---- */
+.toc-content .toc-link {
+  transition: all 0.3s ease !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+}
+
+.toc-content .toc-link:hover {
+  background: rgba(73, 177, 245, 0.1) !important;
+  color: var(--blog-primary) !important;
+}
+
+.toc-content .active {
+  color: var(--blog-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* ---- Footer Styling ---- */
+#footer {
+  background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+}
+
+#footer .footer-custom-text {
+  color: var(--blog-primary) !important;
+  font-size: 1.1em !important;
+}
+
+/* ---- Scrollbar Styling ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--blog-primary), var(--blog-secondary));
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blog-accent);
+}
+
+/* ---- Selection Color ---- */
+::selection {
+  background: rgba(73, 177, 245, 0.3) !important;
+  color: inherit !important;
+}
+
+/* ---- Loading Animation ---- */
+.pace .pace-progress {
+  background: linear-gradient(90deg, var(--blog-primary), var(--blog-secondary)) !important;
+  height: 3px !important;
+}
+
+/* ---- Button Styling ---- */
+#page .page-btn:hover,
+#to_comment:hover {
+  background: var(--blog-primary) !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ---- Post Navigation ---- */
+.post-nav-item {
+  transition: all 0.3s ease !important;
+  border-radius: var(--blog-radius) !important;
+}
+
+.post-nav-item:hover {
+  background: rgba(73, 177, 245, 0.08) !important;
+  transform: translateX(4px) !important;
+}
+
+/* ---- Categories Page ---- */
+.category-lists .category-list {
+  text-align: center;
+}
+
+.category-lists .category-list a {
+  transition: all 0.3s ease !important;
+}
+
+.category-lists .category-list a:hover {
+  color: var(--blog-primary) !important;
+}
+
+.category-lists .category-list .category-list-count {
+  background: var(--blog-primary) !important;
+  color: white !important;
+  border-radius: 20px !important;
+  padding: 2px 10px !important;
+  font-size: 0.85em !important;
+}
+
+/* ---- Tags Page ---- */
+.tag-cloud a {
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
+}
+
+/* ---- Responsive Adjustments ---- */
+@media screen and (max-width: 768px) {
+  #post-content,
+  #article-container {
+    font-size: 15px;
+  }
+
+  #post-content h2,
+  #article-container h2 {
+    font-size: 1.3em;
+  }
+
+  .article-sort-item:hover {
+    transform: translateX(4px) !important;
+  }
+}
+
+/* ---- Smooth Transitions ---- */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* ---- Post Content Enhancements ---- */
+#post-content h3 {
+  position: relative;
+  padding-left: 16px;
+}
+
+#post-content h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(180deg, var(--blog-primary), var(--blog-secondary));
+  border-radius: 2px;
+}
+
+/* ---- Horizontal Rule Styling ---- */
+#post-content hr,
+#article-container hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blog-primary), var(--blog-secondary), transparent);
+  margin: 2em 0;
+}
+
+/* ---- Strong/Bold Styling ---- */
+#post-content strong,
+#article-container strong {
+  color: var(--blog-primary);
+  font-weight: 600;
+}
+
+/* ---- Note/Alert Styling ---- */
+.note {
+  border-radius: var(--blog-radius) !important;
+  border: none !important;
+  box-shadow: var(--blog-shadow) !important;
+}
+
+/* ---- Post Copyright ---- */
+.post-copyright {
+  border-radius: var(--blog-radius) !important;
+  border-left: 4px solid var(--blog-primary) !important;
+  background: rgba(73, 177, 245, 0.05) !important;
+}
+
+/* ---- Related Posts ---- */
+.relatedPosts_list {
+  border-radius: var(--blog-radius) !important;
+  transition: all 0.3s ease !important;
+}
+
+.relatedPosts_list:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--blog-shadow) !important;
+}
+
+/* ---- Busuanzi Counter ---- */
+#busuanzi_value_site_pv,
+#busuanzi_value_site_uv,
+#busuanzi_value_page_pv {
+  color: var(--blog-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* ---- Comments Section ---- */
+#post-comment {
+  border-top: 2px solid var(--blog-border) !important;
+  padding-top: 2em !important;
+}
+
+/* ---- Archive Page ---- */
+.article-sort {
+  border-left: 3px solid var(--blog-primary) !important;
+  padding-left: 20px !important;
+}
+
+.article-sort-year {
+  color: var(--blog-primary) !important;
+  font-size: 1.5em !important;
+  font-weight: 700 !important;
+}
+
+/* ---- Category/Tag Labels ---- */
+.article-sort-item .article-sort-item__categories a {
+  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
+  color: white !important;
+  padding: 2px 10px !important;
+  border-radius: 20px !important;
+  font-size: 0.8em !important;
+}
+
+/* ---- Mobile Menu ---- */
+#mobile-sidebar .mobile-sidebar-links a {
+  transition: all 0.3s ease !important;
+}
+
+#mobile-sidebar .mobile-sidebar-links a:hover {
+  color: var(--blog-primary) !important;
+  transform: translateX(8px) !important;
+}
+
+/* ---- Dark Mode Toggle ---- */
+#darkmode {
+  transition: all 0.3s ease !important;
+}
+
+#darkmode:hover {
+  transform: rotate(30deg) !important;
+}
+
+/* ---- Back to Top Button ---- */
+#go-up {
+  background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+#go-up:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 4px 15px rgba(73, 177, 245, 0.4) !important;
+}
+
+/* ---- Search Styling ---- */
+#search-page .search-dialog {
+  border-radius: var(--blog-radius) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+}
+
+#search-page input {
+  border-radius: var(--blog-radius) !important;
+  border: 2px solid var(--blog-border) !important;
+  transition: all 0.3s ease !important;
+}
+
+#search-page input:focus {
+  border-color: var(--blog-primary) !important;
+  box-shadow: 0 0 0 3px rgba(73, 177, 245, 0.2) !important;
+}
