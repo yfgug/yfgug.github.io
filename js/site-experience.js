@@ -148,23 +148,6 @@
   }
 
   function initTilt () {
-    if (window.matchMedia('(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)').matches) return
-
-    document.querySelectorAll('#recent-posts .recent-post-item').forEach(function (card) {
-      if (card.dataset.tiltReady) return
-      card.dataset.tiltReady = 'true'
-
-      card.addEventListener('mousemove', function (event) {
-        var rect = card.getBoundingClientRect()
-        var x = ((event.clientX - rect.left) / rect.width - 0.5) * 8
-        var y = ((event.clientY - rect.top) / rect.height - 0.5) * -8
-        card.style.transform = 'perspective(900px) rotateX(' + y.toFixed(2) + 'deg) rotateY(' + x.toFixed(2) + 'deg) translateY(-6px)'
-      })
-
-      card.addEventListener('mouseleave', function () {
-        card.style.transform = ''
-      })
-    })
   }
 
   function isHomePage () {
@@ -174,13 +157,14 @@
 
   function initHomeDock () {
     var oldDock = document.querySelector('.home-dock')
+    if (oldDock) oldDock.remove()
+
     if (!isHomePage()) {
-      if (oldDock) oldDock.remove()
       return
     }
 
-    var header = document.querySelector('#page-header.full_page')
-    if (!header || oldDock) return
+    var target = document.querySelector('#recent-posts')
+    if (!target) return
 
     var dock = document.createElement('nav')
     dock.className = 'home-dock'
@@ -200,7 +184,7 @@
       '</a>'
     ].join('')
 
-    header.appendChild(dock)
+    target.insertBefore(dock, target.firstChild)
   }
 
   function initSiteExperience () {

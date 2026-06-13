@@ -107,25 +107,7 @@
 
       const theme = saveToLocal.get('theme')
     
-          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
-          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
-
-          if (theme === undefined) {
-            if (mediaQueryLight.matches) activateLightMode()
-            else if (mediaQueryDark.matches) activateDarkMode()
-            else {
-              const hour = new Date().getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
-            }
-            mediaQueryDark.addEventListener('change', () => {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
-              }
-            })
-          } else {
-            theme === 'light' ? activateLightMode() : activateDarkMode()
-          }
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
         
       
       const asideStatus = saveToLocal.get('aside-status')
@@ -179,13 +161,13 @@
     toc: true,
     rightside: true,
   },
-  autoDarkmode: true
+  autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
   title: 'THU-BDC2026 实验日志：那些把结果越改越差的优化',
   isHighlightShrink: true,
   isToc: true,
   pageType: 'post'
-}</script><link rel="preload" as="image" href="/img/hero-bg.jpg" fetchpriority="high"><link rel="preconnect" href="https://v1.hitokoto.cn"><link rel="alternate" type="application/atom+xml" title="旅行与生活" href="/atom.xml"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="color-scheme" content="light dark"><link rel="stylesheet" href="/css/custom.css?v=20260613-wide"><meta name="generator" content="Hexo 8.1.2"></head><body><script>window.paceOptions = {
+}</script><link rel="preload" as="image" href="/img/hero-bg.jpg" fetchpriority="high"><link rel="preconnect" href="https://v1.hitokoto.cn"><link rel="alternate" type="application/atom+xml" title="旅行与生活" href="/atom.xml"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="color-scheme" content="light dark"><link rel="stylesheet" href="/css/custom.css?v=20260613-liquid-glass"><meta name="generator" content="Hexo 8.1.2"></head><body><script>window.paceOptions = {
   restartOnPushState: false
 }
 
@@ -662,7 +644,7 @@ btf.addGlobalFn('pjaxSend', () => {
 
   btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
   window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
-})()</script></div><script defer src="/js/site-experience.js?v=20260613-wide"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+})()</script></div><script defer src="/js/site-experience.js?v=20260613-liquid-glass"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
   const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
   window.pjax = new Pjax({
