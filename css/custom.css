@@ -17,6 +17,22 @@
   --text-secondary: #555;
   --text-light: #888;
   --code-bg: #f0f0f0;
+  --page-wide-max: 1760px;
+  --page-wide-gap: 24px;
+  --aside-wide: 350px;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }
 
 [data-theme="dark"] {
@@ -56,6 +72,61 @@
 }
 
 /* ========================================
+   Wide Desktop Layout
+   ======================================== */
+@media screen and (min-width: 1200px) {
+  #content-inner.layout {
+    gap: var(--page-wide-gap);
+    max-width: min(var(--page-wide-max), calc(100vw - 72px)) !important;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  #content-inner.layout > div:first-child {
+    flex: 1 1 auto;
+    width: auto !important;
+    min-width: 0;
+  }
+
+  #content-inner.layout.hide-aside {
+    max-width: min(1360px, calc(100vw - 72px)) !important;
+  }
+
+  #content-inner.layout.hide-aside > div:first-child {
+    width: 100% !important;
+  }
+
+  #aside-content {
+    flex: 0 0 var(--aside-wide);
+    width: var(--aside-wide) !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  :root {
+    --page-wide-max: 1900px;
+    --page-wide-gap: 28px;
+    --aside-wide: 370px;
+  }
+
+  #content-inner.layout.hide-aside {
+    max-width: min(1480px, calc(100vw - 96px)) !important;
+  }
+
+  #recent-posts .recent-post-item:not(.ads-wrap) {
+    height: clamp(280px, 14vw, 340px);
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  :root {
+    --page-wide-max: 1980px;
+  }
+}
+
+/* ========================================
    Article Content - PC Layout
    ======================================== */
 /* 外层容器 padding 清零，交给 article-container 统一控制 */
@@ -66,12 +137,14 @@
 
 #post-content,
 #article-container {
+  box-sizing: border-box;
+  width: 100%;
   font-size: 17px;
   line-height: 1.9;
   letter-spacing: 0;
-  max-width: 800px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 32px 40px !important;
+  padding: 40px 60px !important;
   color: var(--text-primary);
 }
 
