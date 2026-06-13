@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://luanjiahao.qzz.io/about/index.html</loc>
+    <loc>https://luanjiahao.qzz.io/2026/06/13/thu-bdc2026-experiment-log/</loc>
+    
+    <lastmod>2026-06-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/2026/06/13/thu-bdc2026-model-iteration/</loc>
     
     <lastmod>2026-06-13</lastmod>
     
@@ -12,6 +21,15 @@
   
   <url>
     <loc>https://luanjiahao.qzz.io/2026/06/13/competition-review-notes/</loc>
+    
+    <lastmod>2026-06-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/about/index.html</loc>
     
     <lastmod>2026-06-13</lastmod>
     
@@ -360,28 +378,7 @@
   </url>
   
   <url>
-    <loc>https://luanjiahao.qzz.io/tags/%E6%AF%94%E8%B5%9B/</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://luanjiahao.qzz.io/tags/%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://luanjiahao.qzz.io/tags/%E5%A4%8D%E7%9B%98/</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://luanjiahao.qzz.io/tags/%E6%88%90%E9%95%BF/</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -492,6 +489,76 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/THU-BDC2026/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/%E9%87%8F%E5%8C%96/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/%E5%9B%9E%E6%B5%8B/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/%E5%AE%9E%E9%AA%8C%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/LightGBM/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/Transformer/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/LambdaRank/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -531,6 +598,13 @@
   
   <url>
     <loc>https://luanjiahao.qzz.io/categories/%E6%AF%94%E8%B5%9B%E5%A4%8D%E7%9B%98/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://luanjiahao.qzz.io/categories/%E9%A1%B9%E7%9B%AE%E6%97%A5%E5%BF%97/</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
