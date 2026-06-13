@@ -6,6 +6,17 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#101820">
   <title>404 | 路标不见了</title>
+  <script>
+    (() => {
+      const rescueRoutes = {
+        "/2026/06/13/thu-bdc2026-experiment-log/": "content-20260613"
+      };
+      const path = location.pathname.replace(/\/index\.html$/, "/").replace(/\/?$/, "/");
+      if (rescueRoutes[path] && !location.search) {
+        location.replace(`${path}?v=${encodeURIComponent(rescueRoutes[path])}`);
+      }
+    })();
+  </script>
   <style>
     :root {
       color-scheme: dark;

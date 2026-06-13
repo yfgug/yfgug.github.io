@@ -2,6 +2,9 @@
   'use strict'
 
   var CONSENT_KEY = 'travel_blog_cookie_consent_v1'
+  var STALE_ARTICLE_ROUTES = {
+    '/2026/06/13/thu-bdc2026-experiment-log/': 'content-20260613'
+  }
   var revealObserver = null
   var progressBound = false
 
@@ -19,6 +22,36 @@
 
   function safeSet (key, value) {
     try { localStorage.setItem(key, value) } catch (err) {}
+  }
+
+  function normalizePath (path) {
+    path = path.replace(/\/index\.html$/, '/')
+    return path.endsWith('/') ? path : path + '/'
+  }
+
+  function withArticleVersion (path, version) {
+    return path + '?v=' + encodeURIComponent(version)
+  }
+
+  function initStaleArticleRescue () {
+    var path = normalizePath(window.location.pathname)
+    var version = STALE_ARTICLE_ROUTES[path]
+
+    if (version && !window.location.search) {
+      var looksLikeCached404 = document.querySelector('.type-404, .error_title') || /^404\b/.test(document.title)
+      if (looksLikeCached404) {
+        window.location.replace(withArticleVersion(path, version))
+        return
+      }
+    }
+
+    Object.keys(STALE_ARTICLE_ROUTES).forEach(function (route) {
+      var routeVersion = STALE_ARTICLE_ROUTES[route]
+      var versionedHref = withArticleVersion(route, routeVersion)
+      document.querySelectorAll('a[href="' + route + '"], a[href="' + window.location.origin + route + '"]').forEach(function (link) {
+        link.setAttribute('href', versionedHref)
+      })
+    })
   }
 
   function setConsentCookie (value) {
@@ -172,6 +205,7 @@
 
   function initSiteExperience () {
     document.documentElement.classList.add('blog-js-ready')
+    initStaleArticleRescue()
     initConsent()
     initProgress()
     initHomeDock()
