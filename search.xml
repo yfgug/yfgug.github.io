@@ -4,11 +4,166 @@
   
     
     <entry>
+      <title>比赛复盘：做项目之外，我开始练习把东西讲清楚</title>
+      <link href="/2026/06/13/competition-review-notes/"/>
+      <url>/2026/06/13/competition-review-notes/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>这段时间项目和比赛堆在一起，我最大的感受是：把东西做出来是一回事，把东西讲清楚是另一回事。</p><p>写代码的时候，我只需要关心功能能不能跑、逻辑通不通、页面能不能点。但一到比赛、申报、展示这种场景，问题就变了。</p><p>评委不一定会看你的每一行代码，也不一定有时间理解所有技术细节。你需要在很短的时间里说明白：</p><ul><li>你做了什么？</li><li>为什么要做？</li><li>解决了什么问题？</li><li>你负责了哪部分？</li><li>和普通 demo 比起来，有什么值得看的地方？</li></ul><p>这件事比我想象中难。</p><h2 id="项目不是功能清单"><a href="#项目不是功能清单" class="headerlink" title="项目不是功能清单"></a>项目不是功能清单</h2><p>我以前写项目介绍，很容易写成这样：</p><p>系统实现了登录、注册、增删改查、文件上传、公告管理、订单结算、购物车、搜索、推荐……</p><p>这当然没错，但它不够好。</p><p>因为功能清单只能证明”我写了不少东西”，不能证明”这个项目为什么成立”。</p><p>后来我开始尝试换一种讲法：</p><p>先讲场景，再讲痛点，再讲方案，最后讲我怎么实现。</p><p>比如宿舍管理系统，不只是”学生管理 + 报修 + 公告”，而是：</p><p>宿舍日常管理里经常有信息维护、报修流转、通知发布这些重复工作，所以我用 Spring Boot 和 MyBatis 做了一个后台，把这些流程统一到一个系统里。</p><p>这样听起来就更像一个完整项目，而不是一堆按钮。</p><h2 id="技术亮点要讲人话"><a href="#技术亮点要讲人话" class="headerlink" title="技术亮点要讲人话"></a>技术亮点要讲人话</h2><p>比赛里讲技术，最怕变成背名词。</p><p>Spring Boot、MyBatis、RESTful API、动态 SQL、Session、连接池、AOP、事务，这些词当然能讲，但如果只堆名词，其实没有意义。</p><p>更好的方式是把技术点和问题绑在一起：</p><ul><li>多条件查询很容易写成一堆 if-else，所以用 MyBatis 动态 SQL。</li><li>文件上传可能有安全风险，所以做后缀白名单、大小限制和 UUID 重命名。</li><li>登录接口可能被暴力尝试，所以做失败次数记录和短时间锁定。</li><li>购物车需要跨请求保存状态，所以用 Session 存当前订单。</li></ul><p>这样讲，别人能知道你不是为了用技术而用技术，而是真的遇到了问题，然后用技术解决它。</p><h2 id="展示材料也要像项目一样打磨"><a href="#展示材料也要像项目一样打磨" class="headerlink" title="展示材料也要像项目一样打磨"></a>展示材料也要像项目一样打磨</h2><p>比赛准备里最容易被低估的是材料。</p><p>PPT、演示视频、项目 README、答辩稿，看起来都不是代码，但它们决定别人第一眼怎么理解你的项目。</p><p>我现在会给每个项目准备几样东西：</p><ul><li>一句话介绍：这个项目到底是什么。</li><li>三个核心功能：别贪多，先讲最能代表项目的。</li><li>一张流程图：说明用户怎么用、数据怎么走。</li><li>一个技术架构图：说明前后端、数据库、关键模块。</li><li>一段真实演示：从登录到完成核心流程。</li><li>一页踩坑复盘：说明我真的做过，而不是只拼了页面。</li></ul><p>这些材料准备好之后，不只是比赛能用，写博客、写简历、做项目展示也都能用。</p><h2 id="我现在的整理方式"><a href="#我现在的整理方式" class="headerlink" title="我现在的整理方式"></a>我现在的整理方式</h2><p>以后每个项目或者比赛结束，我打算按这个模板复盘：</p><ol><li>背景：为什么做这个东西。</li><li>目标：它要解决什么问题。</li><li>我的工作：我负责了哪些模块。</li><li>技术实现：关键链路怎么跑通。</li><li>难点：哪里卡住过，怎么解决。</li><li>结果：完成到了什么程度。</li><li>反思：下次会怎么做得更好。</li></ol><p>这个模板不花哨，但很管用。</p><p>因为它逼着我从”我做了很多”变成”我讲得清楚”。</p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>比赛最锻炼人的地方，不只是赶 ddl，也不是通宵改 bug。</p><p>它更像一次压缩训练：你要在有限时间里做选择、搭系统、写材料、做展示，还要面对别人直接问你”这个东西到底有什么用”。</p><p>被问住的时候挺尴尬，但也挺有价值。</p><p>因为那一刻你会发现，项目真正需要补的地方，不一定在代码里，也可能在表达里。</p><p>做出来，是第一步。</p><p>讲清楚，才算真的把它变成自己的东西。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 比赛复盘 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 比赛 </tag>
+            
+            <tag> 项目展示 </tag>
+            
+            <tag> 复盘 </tag>
+            
+            <tag> 成长 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小米 MIMO Token 申请：我用 AI/Agent 写项目的真实体感</title>
+      <link href="/2026/06/13/ai-agent-mimo-application/"/>
+      <url>/2026/06/13/ai-agent-mimo-application/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>最近整理项目的时候，我顺手把小米 MIMO 开发者 Token 申请材料也翻出来了。</p><p>这份材料本来是为了说明我用 AI&#x2F;Agent 做过什么，但写完之后发现，它其实也挺适合当一篇复盘：AI 到底帮了我什么？又有哪些地方不能全交给它？</p><h2 id="AI-参与了哪些项目"><a href="#AI-参与了哪些项目" class="headerlink" title="AI 参与了哪些项目"></a>AI 参与了哪些项目</h2><p>主要是两类：</p><p>第一类是完整业务系统。</p><p>我用 AI 辅助做了校园宿舍管理系统和电商平台。前者是 Spring Boot + MyBatis + MySQL，后者是 Servlet + JSP + DBUtils 的传统 Java Web 项目。</p><p>第二类是技术实验。</p><p>比如 Spring AOP、JdbcTemplate + 声明式事务、Spring MVC 拦截器、三层架构这些小实验。它们不一定大，但很适合验证一个知识点到底有没有学明白。</p><h2 id="AI-最擅长的部分"><a href="#AI-最擅长的部分" class="headerlink" title="AI 最擅长的部分"></a>AI 最擅长的部分</h2><p>我感觉 AI 最适合处理那些”有规律、但很耗时间”的代码。</p><p>比如：</p><ul><li>Entity、DTO、VO 这种结构化类。</li><li>Controller&#x2F;Service&#x2F;Mapper 的基础模板。</li><li>MyBatis 动态 SQL 的第一版。</li><li>DAO 层查询代码。</li><li>前端一些重复的表单和异步请求片段。</li><li>配置文件和跨域、上传之类的查漏补缺。</li></ul><p>这些东西让人手写不是不会，而是容易疲劳。AI 先出第一版，我再去改业务逻辑，速度确实快很多。</p><p>我自己的体感是，规律性强的代码效率能提升 50%-60%。以前可能要两周慢慢磨的传统电商项目，用 AI 辅助后大概一周能跑出完整流程。</p><h2 id="但它不能替你负责"><a href="#但它不能替你负责" class="headerlink" title="但它不能替你负责"></a>但它不能替你负责</h2><p>AI 写出来的代码，最大的问题是”看起来很像对的”。</p><p>有时候它会给你一个很顺眼的 Controller，方法名、注解、返回值都像那么回事。但你真去跑，就会发现参数对不上、SQL 字段错了、前端传的名字和后端接的名字不一致。</p><p>所以我现在用 AI 写项目，会尽量把它当副驾驶：</p><ul><li>第一版可以让它出。</li><li>业务规则必须自己确认。</li><li>SQL 必须自己看。</li><li>安全边界必须自己补。</li><li>最后必须自己跑完整流程。</li></ul><p>AI 能减少重复劳动，但不能替你承担工程判断。</p><h2 id="对学习的影响"><a href="#对学习的影响" class="headerlink" title="对学习的影响"></a>对学习的影响</h2><p>最明显的变化是学习周期变短了。</p><p>从 Java SE 到 Servlet，再到 Spring、Spring Boot，如果完全手写慢慢摸，可能要拖三个月。AI 辅助后，我大概六周左右就把这条链路跑了一遍。</p><p>但这里有个前提：不能只复制粘贴。</p><p>如果只是让 AI 写完，然后自己不理解，那项目做完也没什么用。真正有用的是让它把”能跑的第一版”生成出来，然后自己去拆：</p><ul><li>这个接口为什么这么分层？</li><li>这个 SQL 为什么这样写？</li><li>这个配置是解决什么问题？</li><li>如果需求改了，我应该改哪里？</li></ul><p>这样 AI 才会变成学习加速器，而不是代码代写器。</p><h2 id="后续想做的事"><a href="#后续想做的事" class="headerlink" title="后续想做的事"></a>后续想做的事</h2><p>后面我想继续把 AI 用到更真实的工作流里。</p><p>比如：</p><ul><li>给宿舍管理系统接一个小程序前端。</li><li>让 AI 帮忙生成单元测试。</li><li>做自动化代码 review。</li><li>尝试把 Agent 接进后端流程里，处理一些多步骤任务。</li></ul><p>现在的感觉是，AI 不是让人不用学编程了，而是让”会问问题、会拆任务、会验收结果”变得更重要。</p><p>写代码这件事，正在从”我一行行敲”变成”我设计、我判断、我验收”。</p><p>这挺有意思的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> Agent </tag>
+            
+            <tag> Claude Code </tag>
+            
+            <tag> 开发效率 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用 Servlet 和 JSP 写电商平台：有点古早，但真的练基本功</title>
+      <link href="/2026/06/13/servlet-jsp-ecommerce/"/>
+      <url>/2026/06/13/servlet-jsp-ecommerce/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>现在再写 Servlet + JSP，好像有点复古。</p><p>前端早就 React、Vue 满天飞，后端也基本都是 Spring Boot 起步。但我还是觉得，亲手用 Servlet 和 JSP 写一个电商 demo，很适合补 Web 基本功。</p><p>因为它没有那么多框架帮你藏细节。请求怎么进来，Session 怎么存，页面怎么跳，DAO 怎么查数据库，都得自己写。</p><p>项目在这里：<a href="https://github.com/yfgug/project">yfgug&#x2F;project</a></p><h2 id="功能大概长这样"><a href="#功能大概长这样" class="headerlink" title="功能大概长这样"></a>功能大概长这样</h2><p>这个电商平台不是玩具页面，基本购物流程是完整的：</p><ul><li>用户模块：注册、登录、注销、改密、修改收货地址。</li><li>商品模块：分类浏览、分页查询、关键词搜索、商品详情。</li><li>推荐模块：滚动横幅、热门推荐、新品推荐。</li><li>购物车：基于 Session 保存购物车，异步加入商品。</li><li>订单模块：购物车结算、订单生成、支付方式选择。</li></ul><p>技术上用的是传统 Java Web：Servlet、JSP、JSTL、Filter、DAO、Service。数据库访问用了 Apache DBUtils，连接池配置里实际使用的是 Druid，也保留了传统依赖说明。</p><h2 id="Session-购物车"><a href="#Session-购物车" class="headerlink" title="Session 购物车"></a>Session 购物车</h2><p>购物车这块挺能体现传统 Web 项目的味道。</p><p>用户点”加入购物车”时，前端请求 <code>goods_buy</code>。后端从 Session 里拿 <code>Order</code> 对象，如果没有就新建一个，再根据商品 id 查库存，库存足够就加入购物车。</p><p>这段逻辑不复杂，但它把几个基础点串起来了：</p><ul><li>Session 不是抽象概念，它真的可以存当前用户的临时状态。</li><li>Servlet 处理的是一次请求，但购物车需要跨请求保留。</li><li>后端不能相信前端，加入购物车前还是要查库存。</li></ul><p>以前我只知道 Session 是会话。写完之后才更具体地理解，它就是很多传统 Web 应用维持状态的关键。</p><h2 id="DAO-层也有坑"><a href="#DAO-层也有坑" class="headerlink" title="DAO 层也有坑"></a>DAO 层也有坑</h2><p>不用 ORM 的时候，SQL 会离你很近。</p><p>DBUtils 的 <code>QueryRunner</code> 能少写很多样板代码，<code>BeanHandler</code>、<code>MapListHandler</code> 也能把结果集处理得舒服一点。但 SQL 本身还是要自己负责。</p><p>比如分页查询，不能只想着页面显示几条，还要算：</p><ul><li>当前第几页。</li><li>每页多少条。</li><li>总记录数。</li><li>总页数。</li><li><code>limit</code> 从哪里开始。</li></ul><p>这些东西看着琐碎，但电商列表页离不开。</p><h2 id="为什么这种项目还有意义"><a href="#为什么这种项目还有意义" class="headerlink" title="为什么这种项目还有意义"></a>为什么这种项目还有意义</h2><p>这个项目写完之后，我更能理解 Spring Boot 为什么舒服。</p><p>不是因为 Servlet&#x2F;JSP 不能用，而是因为传统 Java Web 里太多事情需要你亲自管理：</p><ul><li>编码过滤器。</li><li>路由映射。</li><li>Session 状态。</li><li>JSP 页面跳转。</li><li>DAO 手写 SQL。</li><li>依赖包手动放到 <code>WEB-INF/lib</code>。</li></ul><p>写一遍之后，再去用 Spring MVC、Spring Boot，就不会觉得那些自动配置是魔法。它们只是把这些老活儿包装好了。</p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这个电商平台不算现代，但很适合练手。</p><p>它让我知道一个 Web 应用不是只有页面，也不是只有数据库。真正的项目是一条完整链路：用户点按钮，请求进入后端，后端处理状态和数据，再把结果返回到页面。</p><p>这条链路走通了，后面学什么框架都轻松一点。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Servlet </tag>
+            
+            <tag> JSP </tag>
+            
+            <tag> 电商 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>校园宿舍管理系统：一个 CRUD 项目也能写出很多坑</title>
+      <link href="/2026/06/13/dormitory-system-springboot/"/>
+      <url>/2026/06/13/dormitory-system-springboot/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>校园宿舍管理系统听起来很像课程设计。</p><p>学生信息、宿舍号、报修工单、公告管理，这些功能都很常见。刚开始我也觉得它就是一个 CRUD 项目，写几个接口、连个数据库、页面能点就行。</p><p>但真正写完之后才发现，CRUD 只是最外面那层壳。只要你稍微把功能做完整一点，就会遇到很多实际问题。</p><p>项目在这个仓库里：<a href="https://github.com/yfgug/project">yfgug&#x2F;project</a></p><h2 id="做了哪些功能"><a href="#做了哪些功能" class="headerlink" title="做了哪些功能"></a>做了哪些功能</h2><p>这个系统主要有几个模块：</p><ul><li>学生管理：增删改查、多条件搜索、批量删除、头像上传。</li><li>报修工单：提交、处理中、已解决、删除。</li><li>公告管理：发布、编辑、删除。</li><li>登录保护：连续输错密码后短时间锁定账号。</li><li>文件上传：限制后缀、限制大小、UUID 重命名。</li></ul><p>技术栈是 Spring Boot 2.5 + MyBatis + MySQL。后端用 RESTful API，返回值统一包了一层 <code>Result&lt;T&gt;</code>，配置放在 YAML 里，数据库连接池用 HikariCP。</p><h2 id="最先踩到的是查询"><a href="#最先踩到的是查询" class="headerlink" title="最先踩到的是查询"></a>最先踩到的是查询</h2><p>学生管理里最常见的需求就是搜索。</p><p>只按姓名搜很简单，只按宿舍号搜也很简单。但真实页面里经常是组合条件：姓名、性别、宿舍号、入住日期范围，用户想填哪个就填哪个。</p><p>如果每种组合都写一条 SQL，很快就会变成灾难。</p><p>后来我用 MyBatis 动态 SQL 来处理：</p><ul><li>有姓名就拼姓名条件。</li><li>有性别就拼性别条件。</li><li>有宿舍号就拼宿舍号条件。</li><li>有日期范围就拼日期范围。</li><li>批量删除用 <code>&lt;foreach&gt;</code> 展开 id 列表。</li></ul><p>这件事让我第一次比较直观地感觉到，框架不是为了炫技，是真的能救命。</p><h2 id="文件上传比想象中麻烦"><a href="#文件上传比想象中麻烦" class="headerlink" title="文件上传比想象中麻烦"></a>文件上传比想象中麻烦</h2><p>头像上传一开始看起来也很简单：前端传文件，后端存起来，再把路径写进数据库。</p><p>但问题很快就来了：</p><ul><li>用户传的文件是不是图片？</li><li>文件太大怎么办？</li><li>两个人上传同名文件会不会覆盖？</li><li>上传目录怎么映射成可访问路径？</li></ul><p>最后的处理方式是：</p><ul><li>只允许 <code>jpg/jpeg/png/gif/bmp/webp</code>。</li><li>限制 2MB 大小。</li><li>用 UUID 重命名。</li><li>单独做上传配置和资源映射。</li></ul><p>这些细节不写，功能也许能跑。但一旦真的给别人用，就很容易出问题。</p><h2 id="登录防暴力破解"><a href="#登录防暴力破解" class="headerlink" title="登录防暴力破解"></a>登录防暴力破解</h2><p>这个功能不复杂，但我觉得挺有意思。</p><p>我用 <code>ConcurrentHashMap</code> 记录登录失败次数。同一个账号连续输错 3 次，就锁定 5 秒。</p><p>这当然不是专业安全方案，也不能替代验证码、限流、审计日志这些东西。但对一个练习项目来说，它至少让我开始思考”接口不能只考虑正常路径”。</p><p>以前写登录接口，我只会想密码对不对。现在会多想一步：如果有人一直试密码怎么办？</p><h2 id="写完之后的感觉"><a href="#写完之后的感觉" class="headerlink" title="写完之后的感觉"></a>写完之后的感觉</h2><p>这个项目最大的价值，不是它有多少功能，而是它把后端常见的几件事都串了一遍：</p><ul><li>接收请求。</li><li>校验参数。</li><li>调用业务层。</li><li>访问数据库。</li><li>处理文件。</li><li>返回统一结果。</li><li>让前端页面真的能用。</li></ul><p>写之前我觉得 Spring Boot 是一堆注解。写完之后再看，它其实是在帮我把这些重复但重要的工作组织起来。</p><p>项目不大，但它让我对”一个后台系统应该长什么样”有了更清楚的感觉。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring Boot </tag>
+            
+            <tag> MyBatis </tag>
+            
+            <tag> MySQL </tag>
+            
+            <tag> 后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>把 Java 项目堆起来之后，我终于看懂了 Spring</title>
+      <link href="/2026/06/13/java-projects-roadmap/"/>
+      <url>/2026/06/13/java-projects-roadmap/</url>
+      
+        <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>之前学 Java 的时候，我总有一种很奇怪的感觉：语法能看懂，视频也能跟着敲，但真要自己做一个东西，就不知道从哪开始。</p><p>所以后来我干脆把一堆练习和小项目放到一个仓库里，从 Java 基础、JDBC、Servlet&#x2F;JSP，一直堆到 Spring、Spring MVC、Spring Boot。看起来有点乱，但它刚好记录了我从”会写代码”到”能把一个业务系统跑起来”的过程。</p><p>项目地址：<a href="https://github.com/yfgug/project">yfgug&#x2F;project</a></p><h2 id="这个仓库里有什么"><a href="#这个仓库里有什么" class="headerlink" title="这个仓库里有什么"></a>这个仓库里有什么</h2><p>仓库主要分成四块：</p><table><thead><tr><th>目录</th><th>内容</th><th>技术栈</th></tr></thead><tbody><tr><td><code>java-basics/</code></td><td>Java 基础和 JDBC 练习</td><td>JDBC、PreparedStatement</td></tr><tr><td><code>ecommerce-platform/</code></td><td>一个传统电商平台 demo</td><td>Servlet、JSP、DBUtils、连接池</td></tr><tr><td><code>spring-experiments/</code></td><td>Spring 生态实验合集</td><td>Spring、Spring MVC、AOP、事务</td></tr><tr><td><code>dormitory-system/</code></td><td>校园宿舍管理系统</td><td>Spring Boot、MyBatis、MySQL</td></tr></tbody></table><p>这不是那种一上来就微服务、网关、消息队列全家桶的项目。它更像一条学习路线：先把数据库连明白，再把 Web 请求跑通，然后理解分层，最后再用 Spring Boot 把这些东西整合起来。</p><h2 id="为什么我觉得它有用"><a href="#为什么我觉得它有用" class="headerlink" title="为什么我觉得它有用"></a>为什么我觉得它有用</h2><p>很多教程会把知识点拆得很碎：今天讲 JDBC，明天讲 Servlet，后天讲 Spring Bean。单个知识点都不难，但真正困难的是把它们串起来。</p><p>比如一个最普通的”查询学生列表”，背后其实有一整条链路：</p><ol><li>页面发请求。</li><li>Controller 接参数。</li><li>Service 处理业务规则。</li><li>Mapper&#x2F;DAO 查数据库。</li><li>返回统一格式的数据。</li><li>前端再把结果渲染出来。</li></ol><p>这条链路走通以后，再看 Spring 里那些注解就没那么玄学了。<code>@Controller</code>、<code>@Service</code>、<code>@Mapper</code> 不是为了显得高级，它们只是把不同职责放到不同位置。</p><h2 id="CRUD-不丢人"><a href="#CRUD-不丢人" class="headerlink" title="CRUD 不丢人"></a>CRUD 不丢人</h2><p>以前我会觉得 CRUD 项目很普通，没什么好写的。</p><p>后来发现，CRUD 其实一点都不简单。增删改查只是表面，真正麻烦的是各种边界：</p><ul><li>查询要不要支持多条件组合？</li><li>删除要不要支持批量？</li><li>文件上传要不要限制格式和大小？</li><li>登录失败太多次要不要锁一下？</li><li>返回给前端的数据格式要不要统一？</li><li>页面刷新之后 Session 里的购物车还在不在？</li></ul><p>这些东西不会出现在”Hello World”里，但会出现在每个真实一点的项目里。</p><h2 id="AI-在里面做了什么"><a href="#AI-在里面做了什么" class="headerlink" title="AI 在里面做了什么"></a>AI 在里面做了什么</h2><p>这些项目里有不少代码是 AI 辅助生成的，尤其是模板感很强的部分：实体类、Controller、Service、Mapper、DAO、一些前端交互片段。</p><p>但我现在越来越觉得，AI 写代码不是”替你完成项目”，更像是”把你从重复劳动里拽出来”。</p><p>它可以帮我快速生成第一版，但最后还是得自己看：</p><ul><li>SQL 有没有查错表？</li><li>参数有没有校验？</li><li>文件上传有没有安全问题？</li><li>业务流程能不能真的走通？</li><li>代码只是能跑，还是以后也能改？</li></ul><p>这一步不能省。不然项目看着很完整，里面可能全是坑。</p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>这个仓库不算高级，但对我很重要。</p><p>它让我确认了一件事：学后端不是背框架名，也不是堆技术栈，而是把数据、请求、业务和页面之间的关系一遍遍跑通。</p><p>从 Java SE 到 Spring Boot，中间真正的变化不是代码变短了，而是我开始知道一个项目应该怎么拆、怎么连、怎么交付。</p><p>这大概就是练项目的意义。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Spring </tag>
+            
+            <tag> 项目复盘 </tag>
+            
+            <tag> AI辅助开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用 Rust 重写了 QQFlow，从 188MB 到 10MB</title>
       <link href="/2026/05/20/qqflow-rust/"/>
       <url>/2026/05/20/qqflow-rust/</url>
       
-        <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>事情是这样的。</p><p>我有个习惯，每隔一段时间会把 QQ 聊天记录导出来备份。不是为了什么，就是怕哪天号没了，聊天记录也没了。</p><p>之前一直用一个叫 QQFlow 的工具，Electron + Python 写的，能用。但有两个问题：一是软件太大了，安装包 188MB；二是打开大数据库的时候卡得要命，190MB 的数据库要等好几分钟。</p><p>有天晚上我又在等它加载，看着进度条一动不动，突然想：要不用 Rust 重写一个？</p><h2 id="其实没那么难"><a href="#其实没那么难" class="headerlink" title="其实没那么难"></a>其实没那么难</h2><p>说”重写”有点高估我了。</p><p>我做的事情更像是”整合”。核心的思路是参考了 <a href="https://github.com/hicccc77/WeFlow">WeFlow</a> 这个微信聊天记录导出工具的架构——用一个内存缓存把所有消息一次性加载进来，后续查询直接走内存，不再碰数据库。</p><p>具体的实现是这样的：</p><ol><li><p>密钥提取：用 Windows Debug API 注入 QQ 进程，从内存里找到 SQLCipher 的加密密钥。这部分代码网上有现成的，我改了改就用了。</p></li><li><p>数据库解密：用 rusqlite + bundled-sqlcipher，流式复制一份解密后的数据库到临时目录。只复制一次，后续直接读缓存。</p></li><li><p>消息加载：<code>SELECT *</code> 全表扫描，把所有消息按群号&#x2F;私聊对象分组存到 HashMap 里。190MB 数据库大概 30-60 秒，之后所有查询都是 O(1)。</p></li><li><p>前端：React + TypeScript + Vite，抄了几个开源项目的样式，拼拼凑凑。</p></li></ol><p>说实话，我没写多少原创代码。大部分时间都在调试、在踩坑、在看报错日志。</p><h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><h3 id="坑一：死锁"><a href="#坑一：死锁" class="headerlink" title="坑一：死锁"></a>坑一：死锁</h3><p>第一个版本有个很诡异的 bug：点击群聊分析，永远显示”正在加载…”。</p><p>调试了两天才发现是死锁。<code>load_store_if_needed</code> 在持有 Mutex 锁的情况下执行数据库操作，而另一个线程也在等这把锁。两个线程互相等，就卡死了。</p><p>解决方法是把”检查缓存”和”执行数据库”分开：先检查缓存，释放锁，执行数据库操作，然后再加锁存储。听起来简单，但我改了三个版本才稳定下来。</p><h3 id="坑二：BLOB-解析"><a href="#坑二：BLOB-解析" class="headerlink" title="坑二：BLOB 解析"></a>坑二：BLOB 解析</h3><p>QQ 的消息内容存在 BLOB 字段里，是 Protobuf 编码的二进制数据。早期版本的解析器把 varint 字节解码成了 CJK 扩展区字符，输出一堆”生僻字”垃圾。</p><p>后来我加了个纯净度过滤器：只有 60% 以上的字符是常见汉字才保留。但这个阈值太高了，英文消息会被过滤掉。改成先尝试提取可读文本，再回退到 ASCII 分类，才解决。</p><p>还有一个更离谱的问题：某些二进制 BLOB 会让解析器进入无限循环，CPU 直接拉满 100%。最后加了个操作预算（<code>budget = blob_size × 50</code>），超出预算自动回退，才搞定。</p><h3 id="坑三：UID-映射"><a href="#坑三：UID-映射" class="headerlink" title="坑三：UID 映射"></a>坑三：UID 映射</h3><p>QQ 的发送者不是直接存 QQ 号，而是存一个 UID（像 <code>u_-PBswiplK-7J7bmaQLA-mA</code> 这种）。QQ 号存在另一个映射表里。</p><p>问题是这个映射表的列名全是数字（<code>48901</code>、<code>48902</code>、<code>1002</code>），没有语义。我原来的逻辑是找第一个非数字列作为 UID、第一个数字列作为 QQ 号，但第一列的值是纯数字序号，被误判为 QQ 号了。</p><p>最后写了 4 级查找策略：已知列名直查 → 候选表自动检测 → 模糊表名搜索 → 全表暴力扫描。才把各种 QQ 版本的映射表都兼容了。</p><h3 id="坑四：CSV-乱码"><a href="#坑四：CSV-乱码" class="headerlink" title="坑四：CSV 乱码"></a>坑四：CSV 乱码</h3><p>导出的 CSV 文件用 Excel 打开，中文全是乱码。查了半天发现是编码问题——UTF-8 没有 BOM 头，Excel 默认按 GBK 解析。</p><p>在文件开头加了 3 个字节的 BOM（<code>\xEF\xBB\xBF</code>），问题解决。这种小问题最烦人。</p><h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><table><thead><tr><th>特性</th><th>原版 (Electron + Python)</th><th>Rust 版 (Tauri)</th></tr></thead><tbody><tr><td>安装包大小</td><td>~188MB</td><td>~10MB</td></tr><tr><td>内存占用</td><td>~200MB</td><td>~30MB</td></tr><tr><td>打开 190MB 数据库</td><td>几分钟</td><td>30-60 秒（首次），后续秒开</td></tr></tbody></table><h2 id="功能清单"><a href="#功能清单" class="headerlink" title="功能清单"></a>功能清单</h2><ul><li>密钥提取（Windows Debug API）</li><li>数据库解密（SQLCipher）</li><li>TXT 导出（按时间排序、日期分组）</li><li>CSV 导出（带 BOM，Excel 可直接打开）</li><li>聊天分析（24h 分布、类型饼图、成员排行、高频短语）</li><li>多账号支持（每个 QQ 号独立缓存）</li><li>深色&#x2F;浅色主题</li></ul><h2 id="开源"><a href="#开源" class="headerlink" title="开源"></a>开源</h2><p>项目地址：<a href="https://github.com/yfgug/qqflow-rust">yfgug&#x2F;qqflow-rust</a></p><p>目前只支持 Windows，因为密钥提取用的是 Windows API。Mac 和 Linux 的话，密钥提取方式不一样，我还没研究。</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这个项目前前后后写了两个月。说是”重写”，其实大部分时间都在调试。Rust 的编译错误真的让人头大，有时候一个生命周期的问题能卡我半天。</p><p>但最后还是写完了。</p><p>写完之后最大的感受是：很多时候你不需要从零开始造轮子。看看别人怎么做的，把好的思路拿过来，用自己的方式实现一遍，这个过程本身就是学习。</p><p>感谢 WeFlow 作者的开源贡献，没有他的项目，我可能不会想到用这种架构。</p><blockquote><p><em>“代码是整合的艺术，不是原创的专利。”</em></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>事情是这样的。</p><p>我有个习惯，每隔一段时间会把 QQ 聊天记录导出来备份。不是为了什么，就是怕哪天号没了，聊天记录也没了。</p><p>之前一直用一个叫 QQFlow 的工具，Electron + Python 写的，能用。但有两个问题：一是软件太大了，安装包 188MB；二是打开大数据库的时候卡得要命，190MB 的数据库要等好几分钟。</p><p>有天晚上我又在等它加载，看着进度条一动不动，突然想：要不用 Rust 重写一个？</p><h2 id="其实没那么难"><a href="#其实没那么难" class="headerlink" title="其实没那么难"></a>其实没那么难</h2><p>说”重写”有点高估我了。</p><p>我做的事情更像是”整合”。核心的思路是参考了 <a href="https://github.com/hicccc77/WeFlow">WeFlow</a> 这个微信聊天记录导出工具的架构——用一个内存缓存把所有消息一次性加载进来，后续查询直接走内存，不再碰数据库。</p><p>具体的实现是这样的：</p><ol><li><p>密钥提取：用 Windows Debug API 注入 QQ 进程，从内存里找到 SQLCipher 的加密密钥。这部分代码网上有现成的，我改了改就用了。</p></li><li><p>数据库解密：用 rusqlite + bundled-sqlcipher，流式复制一份解密后的数据库到临时目录。只复制一次，后续直接读缓存。</p></li><li><p>消息加载：<code>SELECT *</code> 全表扫描，把所有消息按群号&#x2F;私聊对象分组存到 HashMap 里。190MB 数据库大概 30-60 秒，之后所有查询都是 O(1)。</p></li><li><p>前端：React + TypeScript + Vite，抄了几个开源项目的样式，拼拼凑凑。</p></li></ol><p>说实话，我没写多少原创代码。大部分时间都在调试、在踩坑、在看报错日志。</p><h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><h3 id="坑一：死锁"><a href="#坑一：死锁" class="headerlink" title="坑一：死锁"></a>坑一：死锁</h3><p>第一个版本有个很诡异的 bug：点击群聊分析，永远显示”正在加载…”。</p><p>调试了两天才发现是死锁。<code>load_store_if_needed</code> 在持有 Mutex 锁的情况下执行数据库操作，而另一个线程也在等这把锁。两个线程互相等，就卡死了。</p><p>解决方法是把”检查缓存”和”执行数据库”分开：先检查缓存，释放锁，执行数据库操作，然后再加锁存储。听起来简单，但我改了三个版本才稳定下来。</p><h3 id="坑二：BLOB-解析"><a href="#坑二：BLOB-解析" class="headerlink" title="坑二：BLOB 解析"></a>坑二：BLOB 解析</h3><p>QQ 的消息内容存在 BLOB 字段里，是 Protobuf 编码的二进制数据。早期版本的解析器把 varint 字节解码成了 CJK 扩展区字符，输出一堆”生僻字”垃圾。</p><p>后来我加了个纯净度过滤器：只有 60% 以上的字符是常见汉字才保留。但这个阈值太高了，英文消息会被过滤掉。改成先尝试提取可读文本，再回退到 ASCII 分类，才解决。</p><p>还有一个更离谱的问题：某些二进制 BLOB 会让解析器进入无限循环，CPU 直接拉满 100%。最后加了个操作预算（<code>budget = blob_size × 50</code>），超出预算自动回退，才搞定。</p><h3 id="坑三：UID-映射"><a href="#坑三：UID-映射" class="headerlink" title="坑三：UID 映射"></a>坑三：UID 映射</h3><p>QQ 的发送者不是直接存 QQ 号，而是存一个 UID（像 <code>u_-PBswiplK-7J7bmaQLA-mA</code> 这种）。QQ 号存在另一个映射表里。</p><p>问题是这个映射表的列名全是数字（<code>48901</code>、<code>48902</code>、<code>1002</code>），没有语义。我原来的逻辑是找第一个非数字列作为 UID、第一个数字列作为 QQ 号，但第一列的值是纯数字序号，被误判为 QQ 号了。</p><p>最后写了 4 级查找策略：已知列名直查 → 候选表自动检测 → 模糊表名搜索 → 全表暴力扫描。才把各种 QQ 版本的映射表都兼容了。</p><h3 id="坑四：CSV-乱码"><a href="#坑四：CSV-乱码" class="headerlink" title="坑四：CSV 乱码"></a>坑四：CSV 乱码</h3><p>导出的 CSV 文件用 Excel 打开，中文全是乱码。查了半天发现是编码问题——UTF-8 没有 BOM 头，Excel 默认按 GBK 解析。</p><p>在文件开头加了 3 个字节的 BOM（<code>\xEF\xBB\xBF</code>），问题解决。这种小问题最烦人。</p><h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><table><thead><tr><th>特性</th><th>原版 (Electron + Python)</th><th>Rust 版 (Tauri)</th></tr></thead><tbody><tr><td>安装包大小</td><td>~188MB</td><td>~10MB</td></tr><tr><td>内存占用</td><td>~200MB</td><td>~30MB</td></tr><tr><td>打开 190MB 数据库</td><td>几分钟</td><td>30-60 秒（首次），后续秒开</td></tr></tbody></table><h2 id="功能清单"><a href="#功能清单" class="headerlink" title="功能清单"></a>功能清单</h2><ul><li>密钥提取（Windows Debug API）</li><li>数据库解密（SQLCipher）</li><li>TXT 导出（按时间排序、日期分组）</li><li>CSV 导出（带 BOM，Excel 可直接打开）</li><li>聊天分析（24h 分布、类型饼图、成员排行、高频短语）</li><li>多账号支持（每个 QQ 号独立缓存）</li><li>深色&#x2F;浅色主题</li></ul><h2 id="开源"><a href="#开源" class="headerlink" title="开源"></a>开源</h2><p>项目地址：<a href="https://github.com/yfgug/QQFlow">yfgug&#x2F;QQFlow</a></p><p>目前只支持 Windows，因为密钥提取用的是 Windows API。Mac 和 Linux 的话，密钥提取方式不一样，我还没研究。</p><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这个项目前前后后写了两个月。说是”重写”，其实大部分时间都在调试。Rust 的编译错误真的让人头大，有时候一个生命周期的问题能卡我半天。</p><p>但最后还是写完了。</p><p>写完之后最大的感受是：很多时候你不需要从零开始造轮子。看看别人怎么做的，把好的思路拿过来，用自己的方式实现一遍，这个过程本身就是学习。</p><p>感谢 WeFlow 作者的开源贡献，没有他的项目，我可能不会想到用这种架构。</p><blockquote><p><em>“代码是整合的艺术，不是原创的专利。”</em></p></blockquote>]]></content>
       
       
       <categories>
