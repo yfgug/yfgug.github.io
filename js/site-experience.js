@@ -134,10 +134,47 @@
     })
   }
 
+  function isHomePage () {
+    var path = window.location.pathname.replace(/\/index\.html$/, '/')
+    return path === '/' || path === ''
+  }
+
+  function initHomeDock () {
+    var oldDock = document.querySelector('.home-dock')
+    if (!isHomePage()) {
+      if (oldDock) oldDock.remove()
+      return
+    }
+
+    var header = document.querySelector('#page-header.full_page')
+    if (!header || oldDock) return
+
+    var dock = document.createElement('nav')
+    dock.className = 'home-dock'
+    dock.setAttribute('aria-label', '首页内容入口')
+    dock.innerHTML = [
+      '<a class="home-dock__item" href="/categories/%E5%BE%92%E6%AD%A5%E6%B8%B8%E8%AE%B0/">',
+      '  <i class="fas fa-mountain-sun"></i>',
+      '  <span><b>山野</b><small>徒步与路线</small></span>',
+      '</a>',
+      '<a class="home-dock__item" href="/categories/%E9%A1%B9%E7%9B%AE/">',
+      '  <i class="fas fa-code"></i>',
+      '  <span><b>代码</b><small>项目与工具</small></span>',
+      '</a>',
+      '<a class="home-dock__item" href="/categories/%E6%AF%94%E8%B5%9B%E5%A4%8D%E7%9B%98/">',
+      '  <i class="fas fa-chart-line"></i>',
+      '  <span><b>复盘</b><small>比赛与实验</small></span>',
+      '</a>'
+    ].join('')
+
+    header.appendChild(dock)
+  }
+
   function initSiteExperience () {
     document.documentElement.classList.add('blog-js-ready')
     initConsent()
     initProgress()
+    initHomeDock()
     initReveal()
     initTilt()
   }

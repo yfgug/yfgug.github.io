@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, YFGUG</rights>
   <subtitle>记录每一次出发</subtitle>
   <title>旅行与生活</title>
-  <updated>2026-06-13T02:09:40.119Z</updated>
+  <updated>2026-06-13T02:26:13.494Z</updated>
   <entry>
     <author>
       <name>YFGUG</name>
@@ -34,7 +34,7 @@
 <div class="bdc-timeline">]]>
     </summary>
     <title>THU-BDC2026 实验日志：那些把结果越改越差的优化</title>
-    <updated>2026-06-13T02:09:40.119Z</updated>
+    <updated>2026-06-13T02:26:13.494Z</updated>
   </entry>
   <entry>
     <author>
@@ -60,7 +60,7 @@
 <li>]]>
     </summary>
     <title>THU-BDC2026 技术路线：从 Transformer 到 LightGBM 排序</title>
-    <updated>2026-06-13T01:45:24.210Z</updated>
+    <updated>2026-06-13T02:26:13.473Z</updated>
   </entry>
   <entry>
     <author>
@@ -84,7 +84,7 @@
 <p>一开始我很兴奋，因为这个题目天然适合写得很“高级”：Transfor]]>
     </summary>
     <title>THU-BDC2026 复盘：我差点被一个漂亮回测骗了</title>
-    <updated>2026-06-13T01:45:24.201Z</updated>
+    <updated>2026-06-13T02:26:13.470Z</updated>
   </entry>
   <entry>
     <author>
@@ -107,7 +107,7 @@
 <h2 id="AI-参与了哪些项目"><a href="#AI-参与了哪些项目" class="headerlink" title="AI 参与了哪些项目"></a>AI 参与了哪些项目</h]]>
     </summary>
     <title>小米 MIMO Token 申请：我用 AI/Agent 写项目的真实体感</title>
-    <updated>2026-06-13T01:30:05.092Z</updated>
+    <updated>2026-06-13T02:26:13.500Z</updated>
   </entry>
   <entry>
     <author>
@@ -131,7 +131,7 @@
 <p>项目在这里：<a href="https://github.c]]>
     </summary>
     <title>用 Servlet 和 JSP 写电商平台：有点古早，但真的练基本功</title>
-    <updated>2026-06-13T01:30:05.090Z</updated>
+    <updated>2026-06-13T02:26:13.508Z</updated>
   </entry>
   <entry>
     <author>
@@ -155,7 +155,7 @@
 <p>项目在这个仓库里：<a href="https://github.com/yfgug/project">yfgug&#x2F;project]]>
     </summary>
     <title>校园宿舍管理系统：一个 CRUD 项目也能写出很多坑</title>
-    <updated>2026-06-13T01:30:05.087Z</updated>
+    <updated>2026-06-13T02:26:13.506Z</updated>
   </entry>
   <entry>
     <author>
@@ -178,7 +178,7 @@
 <p>项目地址：<a href="https://gi]]>
     </summary>
     <title>把 Java 项目堆起来之后，我终于看懂了 Spring</title>
-    <updated>2026-06-13T01:30:05.083Z</updated>
+    <updated>2026-06-13T02:26:13.518Z</updated>
   </entry>
   <entry>
     <author>
@@ -202,7 +202,7 @@
 <p>有天晚上我又在等它加载，看着进度条一动不动，突然想：要不用 Rust 重写一个？</p>]]>
     </summary>
     <title>用 Rust 重写了 QQFlow，从 188MB 到 10MB</title>
-    <updated>2026-05-29T15:22:25.491Z</updated>
+    <updated>2026-06-13T02:26:13.524Z</updated>
   </entry>
   <entry>
     <author>
@@ -227,7 +227,7 @@
 <h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>这个项目干的事情很简单：爬取 B 站游戏中心的数据，然后做分析和可视]]>
     </summary>
     <title>爬了 B 站游戏数据，发现了一些有意思的事</title>
-    <updated>2026-05-27T13:49:20.723Z</updated>
+    <updated>2026-06-13T02:26:13.526Z</updated>
   </entry>
   <entry>
     <author>
