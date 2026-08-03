@@ -4,8 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#101820">
+  <meta name="theme-color" content="#1f1e1d">
   <title>404 | 路标不见了</title>
+  <link rel="preconnect" href="https://registry.npmmirror.com" crossorigin>
+  <link rel="stylesheet" href="https://registry.npmmirror.com/lxgw-wenkai-webfont/1.7.0/files/lxgwwenkai-regular.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://registry.npmmirror.com/lxgw-wenkai-webfont/1.7.0/files/lxgwwenkai-bold.css" media="print" onload="this.media='all'">
   <script>
     (() => {
       const rescueRoutes = {
@@ -20,12 +23,12 @@
   <style>
     :root {
       color-scheme: dark;
-      --ink: #f7fbff;
-      --muted: rgba(247, 251, 255, .72);
-      --line: rgba(255, 255, 255, .18);
-      --accent: #42d8a7;
-      --accent-2: #ffbf69;
-      --deep: #101820;
+      --ink: #eae7df;
+      --muted: rgba(234, 231, 223, .74);
+      --line: rgba(234, 231, 223, .18);
+      --accent: #8fbca3;
+      --accent-2: #db9670;
+      --deep: #1f1e1d;
     }
 
     * {
@@ -43,10 +46,10 @@
       display: grid;
       place-items: center;
       overflow-x: hidden;
-      font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      font-family: "LXGW WenKai", Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
       color: var(--ink);
       background:
-        linear-gradient(115deg, rgba(16, 24, 32, .92), rgba(16, 24, 32, .52) 50%, rgba(16, 24, 32, .86)),
+        linear-gradient(115deg, rgba(26, 24, 22, .93), rgba(26, 24, 22, .54) 50%, rgba(26, 24, 22, .88)),
         url("/img/hero-bg.jpg") center / cover fixed;
     }
 
@@ -150,8 +153,8 @@
     a:hover,
     a:focus-visible {
       transform: translateY(-2px);
-      border-color: rgba(66, 216, 167, .7);
-      background: rgba(66, 216, 167, .16);
+      border-color: rgba(143, 188, 163, .7);
+      background: rgba(143, 188, 163, .16);
       outline: none;
     }
 
@@ -162,8 +165,8 @@
       border-radius: 28px;
       overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .06)),
-        url("/img/covers/bdc-model.jpg") center / cover;
+        linear-gradient(180deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .05)),
+        url("/img/nantaihang.jpg") center / cover;
       box-shadow: 0 28px 96px rgba(0, 0, 0, .35);
       position: relative;
     }
@@ -172,7 +175,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(16, 24, 32, .86), transparent 58%);
+      background: linear-gradient(to top, rgba(26, 24, 22, .86), transparent 58%);
     }
 
     .log {
@@ -183,7 +186,7 @@
       z-index: 1;
       display: grid;
       gap: 10px;
-      color: rgba(247, 251, 255, .82);
+      color: rgba(240, 236, 228, .85);
       font: 500 .9rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
     }
 

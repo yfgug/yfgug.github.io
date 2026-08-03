@@ -194,6 +194,7 @@ template {
 .limit-more-line,
 .article-sort-item-title,
 #recent-posts .recent-post-item >.recent-post-info > .article-title,
+#recent-posts .recent-post-item >.recent-post-info > .article-title-heading > .article-title,
 #recent-posts .recent-post-item >.recent-post-info > .content,
 #aside-content .aside-list > .aside-list-item .content > .name,
 #aside-content .aside-list > .aside-list-item .content > .title,
@@ -1845,7 +1846,7 @@ a:hover {
 .site-name,
 #aside-content .author-info-name,
 #aside-content .author-info-description {
-  font-family: "LXGW WenKai", cursive;
+  font-family: "LXGW WenKai", "Noto Serif SC", serif;
 }
 .text-center {
   text-align: center;
@@ -2842,7 +2843,13 @@ figure.highlight pre .javascript .function {
     padding: 30px 20px;
   }
 }
-#recent-posts .recent-post-item >.recent-post-info > .article-title {
+#recent-posts .recent-post-item >.recent-post-info > .article-title-heading {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+#recent-posts .recent-post-item >.recent-post-info > .article-title,
+#recent-posts .recent-post-item >.recent-post-info > .article-title-heading > .article-title {
   color: var(--text-highlight-color);
   font-size: 1.55em;
   line-height: 1.4;
@@ -2853,7 +2860,8 @@ figure.highlight pre .javascript .function {
   transition: all 0.2s ease-in-out;
   -webkit-line-clamp: 2;
 }
-#recent-posts .recent-post-item >.recent-post-info > .article-title .sticky {
+#recent-posts .recent-post-item >.recent-post-info > .article-title .sticky,
+#recent-posts .recent-post-item >.recent-post-info > .article-title-heading > .article-title .sticky {
   margin-right: 10px;
   color: #ff7242;
   -webkit-transform: rotate(45deg);
@@ -2863,11 +2871,13 @@ figure.highlight pre .javascript .function {
   transform: rotate(45deg);
 }
 @media screen and (max-width: 768px) {
-  #recent-posts .recent-post-item >.recent-post-info > .article-title {
+  #recent-posts .recent-post-item >.recent-post-info > .article-title,
+  #recent-posts .recent-post-item >.recent-post-info > .article-title-heading > .article-title {
     font-size: 1.43em;
   }
 }
-#recent-posts .recent-post-item >.recent-post-info > .article-title:hover {
+#recent-posts .recent-post-item >.recent-post-info > .article-title:hover,
+#recent-posts .recent-post-item >.recent-post-info > .article-title-heading > .article-title:hover {
   color: #2e7d5c;
 }
 #recent-posts .recent-post-item >.recent-post-info > .article-meta-wrap {
